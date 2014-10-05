@@ -14,7 +14,7 @@ Bloco::Bloco(const Bloco &bloco)
 	this->colherMat = bloco.colherMat;
 }
 
-Bloco::Bloco(string nome, float resMat[4], bool colherMat[4])
+Bloco::Bloco(string nome, float resMat[5], bool colherMat[5])
 {
 	this->setNome(nome);
 	this->setResMat(resMat);
@@ -47,12 +47,12 @@ void Bloco::setNome(string nome)
 	this->nome = nome;
 }
 
-void Bloco::setResMat(float resMat[4])
+void Bloco::setResMat(float resMat[5])
 {
 	this->resMat = vector<float>(resMat,  resMat + sizeof(resMat) / sizeof(float));
 }
 
-void Bloco::setColherMat(bool colherMat[4])
+void Bloco::setColherMat(bool colherMat[5])
 {
 	this->colherMat = vector<bool>(colherMat,  colherMat + sizeof(colherMat) / sizeof(bool));
 }

@@ -3,22 +3,26 @@
 
 #include <iostream>
 #include "Bloco.h"
+#include "Ferramenta.h"
 
 using namespace std;
 
-class Picareta
+class Picareta : Ferramenta
 {
 public:
 	Picareta(string = "madeira", int = 0, int = 60, int = 60, Bloco = Bloco());
 	Picareta(const Picareta &);
 	Picareta(int);
+	
+	void setTipoN(int);
+	void setTipoS(string);
+	void setMatMine(Bloco);
+	
 	~Picareta();
 	
 private:
 	int tipoN;
 	string tipoS;
-	int maxRes;
-	int atualRes;
 	Bloco matMine;
 };
 

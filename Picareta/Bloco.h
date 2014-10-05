@@ -12,12 +12,12 @@ class Bloco
 public:
 	Bloco();
 	Bloco(const Bloco &);
-	Bloco(string, float[4], bool[4]);
+	Bloco(string, float[5], bool[5]);
 	bool quebrarBloco(Ferramenta &);
 	
 	void setNome(string);
-	void setResMat(float[4]);
-	void setColherMat(bool[4]);
+	void setResMat(float[5]);
+	void setColherMat(bool[5]);
 	
 	string getNome() const;
 	vector<float> getResMat() const;
