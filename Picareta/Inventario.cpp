@@ -4,12 +4,12 @@ Inventario::Inventario()
 {
 }
 
-static void Inventario::AdicionarItem(Ferramenta f)
+void Inventario::AdicionarItem(Ferramenta f)
 {
 	
 }
 
-static void Inventario::AdicionarItem(Bloco f)
+void Inventario::AdicionarItem(Bloco f)
 {
 	
 }

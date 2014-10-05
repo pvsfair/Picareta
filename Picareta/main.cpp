@@ -1,5 +1,9 @@
 #include <iostream>
 #include <stdlib.h>
+#include "Ferramenta.h"
+#include "Picareta.h"
+#include "Bloco.h"
+#include "Inventario.h"
 
 using namespace std;
 

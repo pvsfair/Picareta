@@ -12,7 +12,7 @@ public:
 	Bloco();
 	Bloco(const Bloco &);
 	Bloco(string, float[4], bool[4]);
-	bool quebrarBloco(const Ferramenta &);
+	bool quebrarBloco(Ferramenta &);
 	~Bloco();
 	
 private:

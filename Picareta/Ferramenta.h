@@ -14,8 +14,8 @@ public:
 	void jogarNoChao();
 	void checarEstado() const;
 	void exibirMensagem() const;
-	void quebrarBloco(Bloco);
 	void destruir();
+	bool quebrarBloco(Bloco &);
 };
 
 #endif // FERRAMENTA_H

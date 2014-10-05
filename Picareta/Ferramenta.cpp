@@ -1,4 +1,5 @@
 #include "Ferramenta.h"
+#include "Bloco.h"
 
 Ferramenta::Ferramenta()
 {
@@ -19,9 +20,10 @@ void Ferramenta::exibirMensagem() const
 	
 }
 
-void Ferramenta::quebrarBloco(Bloco b)
+
+bool Ferramenta::quebrarBloco(Bloco &)
 {
-	
+	return true;
 }
 
 Ferramenta::~Ferramenta()

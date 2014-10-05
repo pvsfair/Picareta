@@ -16,9 +16,10 @@ Bloco::Bloco(string nome, float resMat[4], bool colherMat[4])
 	
 }
 
-bool Bloco::quebrarBloco(const Ferramenta & f)
+bool Bloco::quebrarBloco(Ferramenta &f)
 {
 	
+	return true;
 }
 
 Bloco::~Bloco()
