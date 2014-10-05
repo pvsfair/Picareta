@@ -26,7 +26,8 @@ Bloco::Bloco(string nome, float resMat[5], bool colherMat[5])
 bool Bloco::quebrarBloco(Ferramenta * const f)
 {
 	int tipo = f->getTipoN();
-	
+	cout << "Quebrando Bloco" << endl << "Para cancelar aperte C";
+	for(int i = 0; i < resMat[tipo])
 	return true;
 }
 //Operator
