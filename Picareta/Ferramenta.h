@@ -2,7 +2,7 @@
 #define FERRAMENTA_H
 
 #include <iostream>
-#include "Bloco.h"
+class Bloco;
 
 using namespace std;
 
@@ -19,11 +19,12 @@ public:
 	Ferramenta(int);
 	Ferramenta(int, int, int);
 	
-	void jogarNoChao();
-	void checarEstado() const;
-	void exibirMensagem() const;
-	void destruir();
-	bool quebrarBloco(Bloco &);	
+	virtual void jogarNoChao();
+	virtual void checarEstado() const;
+	virtual void exibirMensagem() const;
+	virtual void destruir();
+	virtual bool quebrarBloco(Bloco &);	
+	virtual int getTipoN() const;
 	
 	void setMaxRes(int);
 	void setAtualRes(int);

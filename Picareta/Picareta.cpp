@@ -68,7 +68,7 @@ void Picareta::setTipoS(string tipoS)
 	{
 		local.push_back(tolower(tipoS[i], loc));
 	}
-	if(local =! "madeira" || local =! "pedra" || local =! "ferro" || local =! "diamante" || local =! "ouro")
+	if((local != "madeira") || (local != "pedra") || (local != "ferro") || (local != "diamante") || (local != "ouro"))
 	{
 		cout << "String invalida para tipo de ferramenta\n";
 	} else
@@ -78,6 +78,38 @@ void Picareta::setTipoS(string tipoS)
 void Picareta::setMatMine(Bloco b)
 {
 	this->matMine = b;
+}
+
+void Picareta::jogarNoChao()
+{
+	cout << "Voce jogou sua picareta de " << this->tipoS << " no chao" << endl;
+}
+
+void Picareta::checarEstado() const
+{
+	cout << "Sua picareta de " << this->tipoS << " esta com " << (this->atualRes / this->maxRes) * 100 << "% de resistencia ";
+	cout << "(" << this->atualRes << " de " << this->maxRes << ")" << endl;
+}
+
+void Picareta::exibirMensagem() const
+{
+	
+}
+
+void Picareta::destruir()
+{
+	
+}
+
+bool Picareta::quebrarBloco(Bloco &b)
+{
+	this->atualRes--;
+	return b.quebrarBloco(this);
+}
+
+int Picareta::getTipoN() const
+{
+	return this->tipoN;
 }
 
 Picareta::~Picareta()

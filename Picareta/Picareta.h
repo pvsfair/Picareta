@@ -18,6 +18,12 @@ public:
 	void setTipoS(string);
 	void setMatMine(Bloco);
 	
+	virtual void jogarNoChao();
+	virtual void checarEstado() const;
+	virtual void exibirMensagem() const;
+	virtual void destruir();
+	virtual bool quebrarBloco(Bloco &);	
+	virtual int getTipoN() const;
 	~Picareta();
 	
 private:

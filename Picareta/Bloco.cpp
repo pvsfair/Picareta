@@ -23,8 +23,9 @@ Bloco::Bloco(string nome, float resMat[5], bool colherMat[5])
 //Fim construtores
 
 //Funcoes
-bool Bloco::quebrarBloco(Ferramenta &f)
+bool Bloco::quebrarBloco(Ferramenta * const f)
 {
+	int tipo = f->getTipoN();
 	
 	return true;
 }

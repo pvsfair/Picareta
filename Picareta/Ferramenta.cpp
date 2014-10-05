@@ -8,8 +8,8 @@ Ferramenta::Ferramenta(int tipoFerramenta)
 Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, int atualRes)
 {
 	this->tipoFerramenta = tipoFerramenta;
-	this->maxRes = maxRes;
-	this->atualRes = atualRes;
+	this->setMaxRes(maxRes);
+	this->setAtualRes(atualRes);
 }
 
 void Ferramenta::jogarNoChao()
@@ -27,6 +27,10 @@ void Ferramenta::exibirMensagem() const
 	
 }
 
+void Ferramenta::destruir()
+{
+	
+}
 
 bool Ferramenta::quebrarBloco(Bloco &)
 {
@@ -37,9 +41,15 @@ void Ferramenta::setMaxRes(int maxRes)
 {
 	this->maxRes = maxRes;
 }
+
 void Ferramenta::setAtualRes(int atualRes)
 {
 	this->atualRes = atualRes;
+}
+
+int Ferramenta::getTipoN() const
+{
+	return -1;
 }
 
 Ferramenta::~Ferramenta()

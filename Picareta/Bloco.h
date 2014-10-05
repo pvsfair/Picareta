@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-class Ferramenta;
+#include "Ferramenta.h"
 
 using namespace std;
 
@@ -13,7 +13,7 @@ public:
 	Bloco();
 	Bloco(const Bloco &);
 	Bloco(string, float[5], bool[5]);
-	bool quebrarBloco(Ferramenta &);
+	bool quebrarBloco(Ferramenta * const);
 	
 	void setNome(string);
 	void setResMat(float[5]);
