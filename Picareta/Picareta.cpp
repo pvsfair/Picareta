@@ -68,9 +68,9 @@ void Picareta::setTipoS(string tipoS)
 	{
 		local.push_back(tolower(tipoS[i], loc));
 	}
-	if((local != "madeira") || (local != "pedra") || (local != "ferro") || (local != "diamante") || (local != "ouro"))
+	if((local != "madeira") && (local != "pedra") && (local != "ferro") && (local != "diamante") && (local != "ouro"))
 	{
-		cout << "String invalida para tipo de ferramenta\n";
+		cout << "String invalida para tipo de ferramenta\n" << local;
 	} else
 		this->tipoS = local;
 }

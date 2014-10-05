@@ -1,3 +1,5 @@
+#include <conio.h>
+#include <windows.h>
 #include "Bloco.h"
 
 using namespace std;
@@ -27,8 +29,17 @@ bool Bloco::quebrarBloco(Ferramenta * const f)
 {
 	int tipo = f->getTipoN();
 	cout << "Quebrando Bloco" << endl << "Para cancelar aperte C";
-	for(int i = 0; i < resMat[tipo])
-	return true;
+	int oldTime;
+	for(int i = 0; i < resMat[tipo] * 100; i++)
+	{
+		Sleep(1);
+		if(kbhit())
+			if(getch() == 'c') break;
+		int time = i / 1000;
+		if(time != oldTime) cout << time + 1 << endl; 
+		oldTime = time;
+	}
+	return colherMat[tipo];
 }
 //Operator
 Bloco Bloco::operator = (Bloco b)
