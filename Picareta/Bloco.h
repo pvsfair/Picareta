@@ -2,7 +2,8 @@
 #define BLOCO_H
 
 #include <iostream>
-#include "Ferramenta.h"
+#include <vector>
+class Ferramenta;
 
 using namespace std;
 
@@ -13,12 +14,23 @@ public:
 	Bloco(const Bloco &);
 	Bloco(string, float[4], bool[4]);
 	bool quebrarBloco(Ferramenta &);
+	
+	void setNome(string);
+	void setResMat(float[4]);
+	void setColherMat(bool[4]);
+	
+	string getNome() const;
+	vector<float> getResMat() const;
+	vector<bool> getColherMat() const;
+	
+	Bloco operator = (Bloco b);
+	
 	~Bloco();
 	
 private:
 	string nome;
-	float resMat[4];
-	float colherMat[4];
+	vector<float> resMat;
+	vector<bool> colherMat;
 
 };
 
