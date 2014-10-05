@@ -63,7 +63,7 @@ AS       := as
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Inventario.cpp$(ObjectSuffix) $(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) 
 
 
 
@@ -97,6 +97,38 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) "main.cpp"
+
+$(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix): Picareta.cpp $(IntermediateDirectory)/Picareta.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Picareta.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Picareta.cpp$(DependSuffix): Picareta.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Picareta.cpp$(DependSuffix) -MM "Picareta.cpp"
+
+$(IntermediateDirectory)/Picareta.cpp$(PreprocessSuffix): Picareta.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Picareta.cpp$(PreprocessSuffix) "Picareta.cpp"
+
+$(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix): Ferramenta.cpp $(IntermediateDirectory)/Ferramenta.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Ferramenta.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Ferramenta.cpp$(DependSuffix): Ferramenta.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Ferramenta.cpp$(DependSuffix) -MM "Ferramenta.cpp"
+
+$(IntermediateDirectory)/Ferramenta.cpp$(PreprocessSuffix): Ferramenta.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Ferramenta.cpp$(PreprocessSuffix) "Ferramenta.cpp"
+
+$(IntermediateDirectory)/Inventario.cpp$(ObjectSuffix): Inventario.cpp $(IntermediateDirectory)/Inventario.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Inventario.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Inventario.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Inventario.cpp$(DependSuffix): Inventario.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Inventario.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Inventario.cpp$(DependSuffix) -MM "Inventario.cpp"
+
+$(IntermediateDirectory)/Inventario.cpp$(PreprocessSuffix): Inventario.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Inventario.cpp$(PreprocessSuffix) "Inventario.cpp"
+
+$(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix): Bloco.cpp $(IntermediateDirectory)/Bloco.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Bloco.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Bloco.cpp$(DependSuffix): Bloco.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Bloco.cpp$(DependSuffix) -MM "Bloco.cpp"
+
+$(IntermediateDirectory)/Bloco.cpp$(PreprocessSuffix): Bloco.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Bloco.cpp$(PreprocessSuffix) "Bloco.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

@@ -92,5 +92,13 @@
   </Settings>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
+    <File Name="Picareta.h"/>
+    <File Name="Picareta.cpp"/>
+    <File Name="Ferramenta.h"/>
+    <File Name="Ferramenta.cpp"/>
+    <File Name="Inventario.h"/>
+    <File Name="Inventario.cpp"/>
+    <File Name="Bloco.h"/>
+    <File Name="Bloco.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
