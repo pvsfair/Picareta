@@ -1,0 +1,4 @@
+operador <<
+operador =
+alocação dinamica de memoria
+vector
