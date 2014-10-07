@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 	
 	while(rodando)
 	{
+		system("cls");
 		cout << "==========Minecraft==========" << endl;
 		cout << "Você tem " << "alguma coisa" << " na sua mao" << endl;
 		cout << "1 - Construir Picareta" << endl;
@@ -44,14 +45,16 @@ int main(int argc, char **argv)
 				Picareta::menuPicareta();
 				break;
 			case 2:
-				for(int i = 0; i < mapa.size(); i ++)
+				for(int i = 0; i < (int)mapa.size(); i ++)
 				{
 					cout << mapa[i].getNome() << endl;
 				}
 				getch();
+				cout << "Voce deseja destruir algum bloco" << endl;
 				break;
 			case 3:
 				cout << "Fechando o Minecraft" << endl;
+				Sleep(1000);
 				return 0;
 				break;
 			

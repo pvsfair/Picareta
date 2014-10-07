@@ -18,11 +18,16 @@ public:
 	void setTipoS(string);
 	void setMatMine(Bloco);
 	
-	static void menuPicareta();
+	static int menuPicareta();
 	
 	virtual void jogarNoChao();
 	virtual void checarEstado() const;
-	virtual void destruir();
+	virtual inline void destruir()
+	{
+		numPicaretasQuebradas++;
+		cout << "Sua Picareta de " << this->tipoS << " quebrou." << endl;
+		cout << "Construa uma picareta Nova" << endl;
+	}
 	virtual bool quebrarBloco(Bloco &);	
 	virtual int getTipoN() const;
 	static void mostrarPicaretasQuebradas();

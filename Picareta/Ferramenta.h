@@ -21,7 +21,7 @@ public:
 	
 	virtual void jogarNoChao();
 	virtual void checarEstado() const;
-	virtual void destruir();
+	virtual inline void destruir();
 	virtual bool quebrarBloco(Bloco &);	
 	virtual int getTipoN() const;
 	

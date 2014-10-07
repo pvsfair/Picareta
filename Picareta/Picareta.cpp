@@ -91,9 +91,10 @@ int Picareta::getTipoN() const
 }
 //FIM GET'S e SET'S
 
-void Picareta::menuPicareta()
+int Picareta::menuPicareta()
 {
 	
+	return 0;
 }
 
 void Picareta::jogarNoChao()
@@ -105,13 +106,6 @@ void Picareta::checarEstado() const
 {
 	cout << "Sua picareta de " << this->tipoS << " esta com " << (this->atualRes / this->maxRes) * 100 << "% de resistencia ";
 	cout << "(" << this->atualRes << " de " << this->maxRes << ")" << endl;
-}
-
-void Picareta::destruir()
-{
-	numPicaretasQuebradas++;
-	cout << "Sua Picareta de " << this->tipoS << " quebrou." << endl;
-	cout << "Construa uma picareta Nova" << endl;
 }
 
 bool Picareta::quebrarBloco(Bloco &b)
