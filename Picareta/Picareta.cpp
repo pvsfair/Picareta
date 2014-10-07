@@ -122,6 +122,11 @@ bool Picareta::quebrarBloco(Bloco &b)
 	}
 }
 
+string Picareta::getTipoS() const
+{
+	return this->tipoS;
+}
+
 Picareta::~Picareta()
 {
 	

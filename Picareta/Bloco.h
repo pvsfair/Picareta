@@ -18,6 +18,10 @@ public:
 	void setNome(string);
 	void setResMat(float[5]);
 	void setColherMat(bool[5]);
+	inline void setInvalid()
+	{
+		this->nome = "invalid";
+	}
 	
 	string getNome() const;
 	vector<float> getResMat() const;

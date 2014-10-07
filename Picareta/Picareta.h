@@ -30,6 +30,9 @@ public:
 	}
 	virtual bool quebrarBloco(Bloco &);	
 	virtual int getTipoN() const;
+	
+	string getTipoS() const;
+	
 	static void mostrarPicaretasQuebradas();
 	~Picareta();
 	

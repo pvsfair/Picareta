@@ -28,19 +28,23 @@ Bloco::Bloco(string nome, float resMat[5], bool colherMat[5])
 bool Bloco::quebrarBloco(const Ferramenta * f)
 {
 	int tipo = f->getTipoN();
-	cout << "Quebrando Bloco" << endl << "Para cancelar aperte C" << endl;
+	cout << resMat[tipo] << "sec para quebrar o Bloco" << endl << "Para cancelar aperte C" << endl;
 	int oldTime;
 	for(int i = 0; i < resMat[tipo] * 1000; i++)
 	{
 		Sleep(1);
 		if(kbhit())
-			if(getch() == 'c') break;
+			if(getch() == 'c')
+			{
+				cout << "Bloco nao foi quebrado" << endl;
+				return false;
+			}
 		int time = i / 1000;
 		if(time != oldTime) cout << time + 1 << endl; 
 		oldTime = time;
 	}
-	bool col = this->colherMat[tipo];
-	return col;
+	cout << "Bloco quebrado" << endl;
+	return true;
 }
 //Operator
 Bloco Bloco::operator = (Bloco b)
