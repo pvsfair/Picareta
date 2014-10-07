@@ -20,16 +20,17 @@ public:
 	
 	virtual void jogarNoChao();
 	virtual void checarEstado() const;
-	virtual void exibirMensagem() const;
 	virtual void destruir();
 	virtual bool quebrarBloco(Bloco &);	
 	virtual int getTipoN() const;
+	static void mostrarPicaretasQuebradas();
 	~Picareta();
 	
 private:
 	int tipoN;
 	string tipoS;
 	Bloco matMine;
+	static int numPicaretasQuebradas;
 };
 
 #endif // PICARETA_H

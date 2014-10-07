@@ -6,6 +6,9 @@
 
 using namespace std;
 
+Picareta::numPicaretasQuebradas = 0;
+
+//CONSTRUTORES
 Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco matMine) : Ferramenta(TIPO_PICARETA, maxRes, atualRes)
 {
 	this->setTipoS(tipoS);
@@ -52,6 +55,8 @@ Picareta::Picareta(int tipoN) : Ferramenta(TIPO_PICARETA)
 	this->matMine = Bloco();
 	
 }
+//FIM CONSTRUTORES
+//GET'S e SET'S
 void Picareta::setTipoN(int tipoN)
 {
 	if(tipoN > OURO || tipoN < MADEIRA)
@@ -80,6 +85,12 @@ void Picareta::setMatMine(Bloco b)
 	this->matMine = b;
 }
 
+int Picareta::getTipoN() const
+{
+	return this->tipoN;
+}
+//FIM GET'S e SET'S
+
 void Picareta::jogarNoChao()
 {
 	cout << "Voce jogou sua picareta de " << this->tipoS << " no chao" << endl;
@@ -91,25 +102,15 @@ void Picareta::checarEstado() const
 	cout << "(" << this->atualRes << " de " << this->maxRes << ")" << endl;
 }
 
-void Picareta::exibirMensagem() const
-{
-	
-}
-
 void Picareta::destruir()
 {
-	
+	numPicaretasQuebradas++;
 }
 
 bool Picareta::quebrarBloco(Bloco &b)
 {
 	this->atualRes--;
 	return b.quebrarBloco(this);
-}
-
-int Picareta::getTipoN() const
-{
-	return this->tipoN;
 }
 
 Picareta::~Picareta()
