@@ -18,6 +18,8 @@ public:
 	void setTipoS(string);
 	void setMatMine(Bloco);
 	
+	static void menuPicareta();
+	
 	virtual void jogarNoChao();
 	virtual void checarEstado() const;
 	virtual void destruir();

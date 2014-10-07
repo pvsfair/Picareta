@@ -49,5 +49,6 @@ int Ferramenta::getTipoN() const
 
 Ferramenta::~Ferramenta()
 {
+	
 }
 

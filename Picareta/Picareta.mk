@@ -63,7 +63,7 @@ AS       := as
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Inventario.cpp$(ObjectSuffix) $(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) 
 
 
 
@@ -113,14 +113,6 @@ $(IntermediateDirectory)/Ferramenta.cpp$(DependSuffix): Ferramenta.cpp
 
 $(IntermediateDirectory)/Ferramenta.cpp$(PreprocessSuffix): Ferramenta.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Ferramenta.cpp$(PreprocessSuffix) "Ferramenta.cpp"
-
-$(IntermediateDirectory)/Inventario.cpp$(ObjectSuffix): Inventario.cpp $(IntermediateDirectory)/Inventario.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Inventario.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Inventario.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/Inventario.cpp$(DependSuffix): Inventario.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Inventario.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Inventario.cpp$(DependSuffix) -MM "Inventario.cpp"
-
-$(IntermediateDirectory)/Inventario.cpp$(PreprocessSuffix): Inventario.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Inventario.cpp$(PreprocessSuffix) "Inventario.cpp"
 
 $(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix): Bloco.cpp $(IntermediateDirectory)/Bloco.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Bloco.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) $(IncludePath)

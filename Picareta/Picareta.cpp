@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Picareta::numPicaretasQuebradas = 0;
+int Picareta::numPicaretasQuebradas = 0;
 
 //CONSTRUTORES
 Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco matMine) : Ferramenta(TIPO_PICARETA, maxRes, atualRes)
@@ -75,7 +75,7 @@ void Picareta::setTipoS(string tipoS)
 	}
 	if((local != "madeira") && (local != "pedra") && (local != "ferro") && (local != "diamante") && (local != "ouro"))
 	{
-		cout << "String invalida para tipo de ferramenta\n" << local;
+		cout << "String invalida para tipo de ferramenta" << local << endl;
 	} else
 		this->tipoS = local;
 }
@@ -91,6 +91,11 @@ int Picareta::getTipoN() const
 }
 //FIM GET'S e SET'S
 
+void Picareta::menuPicareta()
+{
+	
+}
+
 void Picareta::jogarNoChao()
 {
 	cout << "Voce jogou sua picareta de " << this->tipoS << " no chao" << endl;
@@ -105,12 +110,22 @@ void Picareta::checarEstado() const
 void Picareta::destruir()
 {
 	numPicaretasQuebradas++;
+	cout << "Sua Picareta de " << this->tipoS << " quebrou." << endl;
+	cout << "Construa uma picareta Nova" << endl;
 }
 
 bool Picareta::quebrarBloco(Bloco &b)
 {
-	this->atualRes--;
-	return b.quebrarBloco(this);
+	if(atualRes > 0)
+	{
+		this->atualRes--;
+		return b.quebrarBloco(this);
+		if(atualRes == 0) this->destruir();
+	}
+	else
+	{
+		cout << "Voce nao deveria usar uma picareta quebrada..." << endl;
+	}
 }
 
 Picareta::~Picareta()
