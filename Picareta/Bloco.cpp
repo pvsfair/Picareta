@@ -25,12 +25,12 @@ Bloco::Bloco(string nome, float resMat[5], bool colherMat[5])
 //Fim construtores
 
 //Funcoes
-bool Bloco::quebrarBloco(Ferramenta * const f)
+bool Bloco::quebrarBloco(const Ferramenta * f)
 {
 	int tipo = f->getTipoN();
-	cout << "Quebrando Bloco" << endl << "Para cancelar aperte C";
+	cout << "Quebrando Bloco" << endl << "Para cancelar aperte C" << endl;
 	int oldTime;
-	for(int i = 0; i < resMat[tipo] * 100; i++)
+	for(int i = 0; i < resMat[tipo] * 1000; i++)
 	{
 		Sleep(1);
 		if(kbhit())
@@ -39,7 +39,8 @@ bool Bloco::quebrarBloco(Ferramenta * const f)
 		if(time != oldTime) cout << time + 1 << endl; 
 		oldTime = time;
 	}
-	return colherMat[tipo];
+	bool col = this->colherMat[tipo];
+	return col;
 }
 //Operator
 Bloco Bloco::operator = (Bloco b)

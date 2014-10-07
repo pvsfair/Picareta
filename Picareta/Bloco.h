@@ -13,7 +13,7 @@ public:
 	Bloco();
 	Bloco(const Bloco &);
 	Bloco(string, float[5], bool[5]);
-	bool quebrarBloco(Ferramenta * const);
+	bool quebrarBloco(const Ferramenta *);
 	
 	void setNome(string);
 	void setResMat(float[5]);

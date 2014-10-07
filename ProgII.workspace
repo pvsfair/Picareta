@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="ProgII" Database="">
   <Project Name="Picareta" Path="Picareta/Picareta.project" Active="Yes"/>
+  <Project Name="SmartPhone" Path="../SmartPhone/SmartPhone.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Project Name="Picareta" ConfigName="Debug"/>
+      <Project Name="SmartPhone" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="Picareta" ConfigName="Release"/>
+      <Project Name="SmartPhone" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

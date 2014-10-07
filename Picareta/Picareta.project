@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="Picareta" InternalType="Console">
   <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
     <Plugin Name="CMakePlugin">
       <![CDATA[[{
   "name": "Debug",
@@ -13,9 +16,6 @@
   "parentProject": ""
  }]]]>
     </Plugin>
-    <Plugin Name="qmake">
-      <![CDATA[00010001N0005Debug000000000000]]>
-    </Plugin>
   </Plugins>
   <Description/>
   <Dependencies/>
@@ -25,8 +25,6 @@
     <File Name="Picareta.cpp"/>
     <File Name="Ferramenta.h"/>
     <File Name="Ferramenta.cpp"/>
-    <File Name="Inventario.h"/>
-    <File Name="Inventario.cpp"/>
     <File Name="Bloco.h"/>
     <File Name="Bloco.cpp"/>
   </VirtualDirectory>
