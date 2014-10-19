@@ -119,6 +119,7 @@ bool Picareta::quebrarBloco(Bloco &b)
 	else
 	{
 		cout << "Voce nao deveria usar uma picareta quebrada..." << endl;
+		return false;
 	}
 }
 
@@ -129,6 +130,6 @@ string Picareta::getTipoS() const
 
 Picareta::~Picareta()
 {
-	
+	delete this;
 }
 

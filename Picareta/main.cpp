@@ -86,7 +86,7 @@ int main(int argc, char **argv)
 		}
 	}
 	
-	Picareta p(1);
+	delete picareta;
 	
 	system("pause");
 	return 0;
