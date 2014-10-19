@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 					if(mapa[i].getNome() != "invalid") cout << i << " - " << mapa[i].getNome();
 					cout << endl;
 				}
-				getch();s
+				getch();
 				cout << "Voce deseja destruir algum bloco?" << endl;
 				opcaoSN = getch();
 				if(opcaoSN == 's')
