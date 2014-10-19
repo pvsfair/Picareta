@@ -9,6 +9,11 @@ Bloco::Bloco()
 	this->nome = "invalid";
 }
 
+ostream &operator<< (ostream &output, const Bloco &bloco){
+	output << bloco.nome;
+	return output;
+}
+
 Bloco::Bloco(const Bloco &bloco)
 {
 	this->nome = bloco.nome;
@@ -32,7 +37,7 @@ bool Bloco::quebrarBloco(const Ferramenta * f)
 	int oldTime;
 	for(int i = 0; i < resMat[tipo] * 1000; i++)
 	{
-		Sleep(1);
+		Sleep(0.1);
 		if(kbhit())
 			if(getch() == 'c')
 			{

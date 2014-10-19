@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 			case 2:
 				for(int i = 0; i < (int)mapa.size(); i ++)
 				{
-					if(mapa[i].getNome() != "invalid") cout << i << " - " << mapa[i].getNome();
+					if(mapa[i].getNome() != "invalid") cout << i << " - " << mapa[i];
 					cout << endl;
 				}
 				getch();

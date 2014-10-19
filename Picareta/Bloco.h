@@ -9,6 +9,8 @@ using namespace std;
 
 class Bloco
 {
+	friend ostream &operator<< ( ostream &, const Bloco &);
+	
 public:
 	Bloco();
 	Bloco(const Bloco &);
