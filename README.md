@@ -3,11 +3,11 @@ Picareta
 
 Repositório para um trabalho de Prog II
 
-Parte 2
--Alocação Dinâmica de Memória (X)
--Operadores cout friend (X)
--Operadores de atribuição (X)
--vector pushback (X)
+Parte 2<br>
+-Alocação Dinâmica de Memória (X)<br>
+-Operadores cout friend (X)<br>
+-Operadores de atribuição (X)<br>
+-vector pushback (X)<br>
 
-Parte 3
--Duas Classes relacionadas (X)
+Parte 3<br>
+-Duas Classes relacionadas (X)<br>
