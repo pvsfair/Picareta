@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	int opcao = -1;
 	int opcaoInterna = -1;
 	char opcaoSN = 's';
-	Picareta *picareta;
+	Ferramenta *picareta;
 	picareta = new Picareta(0);
 	vector<Bloco> mapa;
 	
