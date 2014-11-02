@@ -9,6 +9,8 @@ using namespace std;
 
 class Picareta : public Ferramenta
 {
+	friend ostream &operator<< (ostream &, const Picareta &);
+	
 public:
 	Picareta(string = "madeira", int = 0, int = 60, int = 60, Bloco * = new Bloco(), Data * = new Data(1,1,2000));
 	Picareta(const Picareta &);
@@ -39,8 +41,8 @@ public:
 	virtual ~Picareta();
 	
 private:
-	int tipoN;
-	string tipoS;
+	const int tipoN = 0;
+	const string tipoS = "";
 	Bloco * matMine;
 	static int numPicaretasQuebradas;
 };

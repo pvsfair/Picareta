@@ -9,6 +9,8 @@ using namespace std;
 
 class Ferramenta
 {
+	friend ostream &operator<< (ostream &, const Ferramenta &);
+	
 public:
 	const static int TIPO_PICARETA = 0;
 	
@@ -31,16 +33,19 @@ public:
 	virtual string getTipoS() const;
 	virtual int getAtualRes() const;
 	virtual int getMaxRes() const;
+	virtual string getTipoDaFerramenta() const;
+	virtual ~Ferramenta();
+private:
+	const int tipoFerramentaN = 0;
+	const string tipoFerramentaS = "";
+	void setTipoFerramentaS(int);
+protected:
+	Data * dataDeCriacao;
+	const int maxRes = 0;
+	float atualRes;
 	
 	void setMaxRes(int);
 	void setAtualRes(int);
-	virtual ~Ferramenta();
-private:
-	int tipoFerramenta;
-protected:
-	Data * dataDeCriacao;
-	int maxRes;
-	int atualRes;
 };
 
 #endif // FERRAMENTA_H

@@ -27,10 +27,8 @@ int main(int argc, char **argv)
 	int opcao = -1;
 	int opcaoInterna = -1;
 	char opcaoSN = 's';
-	Ferramenta *picareta;
-	picareta = new Picareta(0, *data);
+	Picareta *picareta = new Picareta(0, *data);
 	vector<Bloco> mapa;
-	
 	
 	float minerioFerroRes[5] = {15.0, 1.15, 0.75, 0.6, 15.0};
 	bool minerioFerroColh[5] = {false, true, true, true, false};
@@ -49,7 +47,7 @@ int main(int argc, char **argv)
 	{
 		system("cls");
 		cout << "==========Minecraft==========" << endl;
-		cout << "Voce tem uma picareta de " << picareta->getTipoS() << " na sua mao" << endl;
+		cout << "Voce tem uma "<< *picareta << " na sua mao" << endl;
 		cout << "1 - Construir Picareta" << endl;
 		cout << "2 - Checar Mapa" << endl;
 		cout << "3 - Checar Itens" << endl;
@@ -93,17 +91,22 @@ int main(int argc, char **argv)
 			case 3:
 				picareta->infoItem();
 				getch();
+				cout << endl;
+				picareta->checarEstado();
+				getch();
 				break;
 			case 4:
 				cout << "Fechando o Minecraft";
 				for (int i = 0; i < 3; i ++){
 					Sleep(150);
-					cout << ".";
+					cout << '.';
 				}
 				Sleep(150);
 				return 0;
 				break;
-			
+			default:
+				cout << "Opcao Invalida";
+				break;
 		}
 	}
 	

@@ -3,15 +3,15 @@
 #include "Bloco.h"
 
 using namespace std;
-//Construtores
-Bloco::Bloco()
-{
-	this->nome = "invalid";
-}
 
 ostream &operator<< (ostream &output, const Bloco &bloco){
 	output << bloco.nome;
 	return output;
+}
+//Construtores
+Bloco::Bloco()
+{
+	this->nome = "invalid";
 }
 
 Bloco::Bloco(const Bloco &bloco)
@@ -48,8 +48,9 @@ bool Bloco::quebrarBloco(const Ferramenta * f)
 		if(time != oldTime) cout << time + 1 << endl; 
 		oldTime = time;
 	}
+	this->setInvalid();
 	cout << "Bloco quebrado" << endl;
-	return this->colherMat[tipo];
+	return true;
 }
 //Operator
 Bloco Bloco::operator = (Bloco b)

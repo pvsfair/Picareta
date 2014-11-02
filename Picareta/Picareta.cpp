@@ -8,6 +8,12 @@ using namespace std;
 
 int Picareta::numPicaretasQuebradas = 0;
 
+ostream &operator<< (ostream &output, const Picareta &picareta){
+	output << static_cast<Ferramenta>(picareta);
+	output << " de " << picareta.getTipoS();
+	return output;
+}
+
 //CONSTRUTORES
 Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco * matMine, Data * dataDeCriacao) : Ferramenta(TIPO_PICARETA, maxRes, atualRes, *dataDeCriacao)
 {
@@ -18,8 +24,8 @@ Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco * ma
 
 Picareta::Picareta(const Picareta &pic) : Ferramenta(TIPO_PICARETA, pic.maxRes, pic.atualRes, *pic.dataDeCriacao)
 {
-	this->tipoN = pic.tipoN;
-	this->tipoS = pic.tipoS;
+	const_cast<int&>(this->tipoN) = pic.tipoN;
+	const_cast<string&>(this->tipoS) = pic.tipoS;
 	this->matMine = pic.matMine;
 }
 
@@ -61,7 +67,7 @@ void Picareta::setTipoN(int tipoN)
 	if(tipoN > OURO || tipoN < MADEIRA)
 		cout << "Numero invalido para tipo de ferramenta\n";
 	else
-		this->tipoN = tipoN;
+		const_cast<int&>(this->tipoN) = tipoN;
 }
 
 void Picareta::setTipoS(string tipoS)
@@ -76,7 +82,7 @@ void Picareta::setTipoS(string tipoS)
 	{
 		cout << "String invalida para tipo de ferramenta" << local << endl;
 	} else
-		this->tipoS = local;
+		const_cast<string&>(this->tipoS) = local;
 }
 
 void Picareta::setMatMine(Bloco & b)
@@ -123,14 +129,14 @@ void Picareta::jogarNoChao()
 
 void Picareta::checarEstado() const
 {
-	cout << "Sua picareta de " << this->tipoS << " esta com " << (this->atualRes / this->maxRes) * 100 << "% de resistencia ";
+	cout << "Sua picareta de " << this->tipoS << " esta com " << (this->atualRes / this->maxRes) * 100.0 << "% de resistencia ";
 	cout << "(" << this->atualRes << " de " << this->maxRes << ")" << endl;
 }
 
 void Picareta::infoItem() const
 {
 	Ferramenta::infoItem();
-	cout << "Picareta de " << this->tipoS << endl;
+	cout << "uma Picareta de " << this->tipoS << '.' << endl;
 }
 
 bool Picareta::quebrarBloco(Bloco &b)
@@ -158,6 +164,6 @@ string Picareta::getTipoS() const
 Picareta::~Picareta()
 {
 	delete matMine;
-	delete this;
+	//delete this;
 }
 
