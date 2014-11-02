@@ -119,12 +119,14 @@ bool Picareta::quebrarBloco(Bloco &b)
 	if(atualRes > 0)
 	{
 		this->atualRes--;
-		return b.quebrarBloco(this);
+		bool caiuNoChao = b.quebrarBloco(this);
 		if(atualRes == 0) this->destruir();
+		return caiuNoChao;
 	}
 	else
 	{
 		cout << "Voce nao deveria usar uma picareta quebrada..." << endl;
+		cout << "Construa uma picareta nova" << endl;
 		return false;
 	}
 }

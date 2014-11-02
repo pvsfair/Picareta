@@ -28,6 +28,8 @@ public:
 	
 	virtual int getTipoN() const;
 	virtual string getTipoS() const;
+	virtual int getAtualRes() const;
+	virtual int getMaxRes() const;
 	
 	void setMaxRes(int);
 	void setAtualRes(int);

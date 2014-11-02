@@ -56,6 +56,14 @@ string Ferramenta::getTipoS() const
 {
 	return "";
 }
+int Ferramenta::getAtualRes() const
+{
+	return this->atualRes;
+}
+int Ferramenta::getMaxRes() const
+{
+	return this->maxRes;
+}
 
 Ferramenta::~Ferramenta()
 {

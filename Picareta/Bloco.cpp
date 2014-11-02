@@ -49,7 +49,7 @@ bool Bloco::quebrarBloco(const Ferramenta * f)
 		oldTime = time;
 	}
 	cout << "Bloco quebrado" << endl;
-	return true;
+	return this->colherMat[tipo];
 }
 //Operator
 Bloco Bloco::operator = (Bloco b)
