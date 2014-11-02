@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 	{
 		system("cls");
 		cout << "==========Minecraft==========" << endl;
-		cout << "Você tem uma picareta de " << picareta->getTipoS() << " na sua mao" << endl;
+		cout << "Voce tem uma picareta de " << picareta->getTipoS() << " na sua mao" << endl;
 		cout << "1 - Construir Picareta" << endl;
 		cout << "2 - Checar Mapa" << endl;
 		cout << "3 - Checar Itens" << endl;
@@ -46,8 +46,9 @@ int main(int argc, char **argv)
 		cin >> opcao;
 		switch(opcao){
 			case 1:
-				//opcaoInterna = Picareta::menuPicareta();
-				cout << "ate o momento voce so pode ter a picareta padrao" << endl;
+				opcaoInterna = Picareta::menuPicareta();
+				picareta = new Picareta(opcaoInterna);
+				//cout << "ate o momento voce so pode ter a picareta padrao" << endl;
 				break;
 			case 2:
 				for(int i = 0; i < (int)mapa.size(); i ++)

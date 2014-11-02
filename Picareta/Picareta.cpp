@@ -93,8 +93,28 @@ int Picareta::getTipoN() const
 
 int Picareta::menuPicareta()
 {
-	
-	return 0;
+	int opcao = -1;
+	cout << "Menu de criação de Picareta" << endl;
+	cout << "Voce deseja criar uma picareta de qual material?" << endl;
+	cout << "1 - Madeira" << endl;
+	cout << "2 - Pedra" << endl;
+	cout << "3 - Ferro" << endl;
+	cout << "4 - Diamante" << endl;
+	cout << "5 - Ouro" << endl;
+	cin >> opcao;
+	while(opcao > 5 || opcao < 1)
+	{
+		cout << "Por favor, escolha uma opcao valida" << endl;
+		cout << "Menu de criação de Picareta" << endl;
+		cout << "Voce deseja criar uma picareta de qual material?" << endl;
+		cout << "1 - Madeira" << endl;
+		cout << "2 - Pedra" << endl;
+		cout << "3 - Ferro" << endl;
+		cout << "4 - Diamante" << endl;
+		cout << "5 - Ouro" << endl;
+		cin >> opcao;
+	}
+	return opcao - 1;
 }
 
 void Picareta::jogarNoChao()
