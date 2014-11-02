@@ -9,21 +9,21 @@ using namespace std;
 int Picareta::numPicaretasQuebradas = 0;
 
 //CONSTRUTORES
-Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco * matMine) : Ferramenta(TIPO_PICARETA, maxRes, atualRes)
+Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco * matMine, Data * dataDeCriacao) : Ferramenta(TIPO_PICARETA, maxRes, atualRes, *dataDeCriacao)
 {
 	this->setTipoS(tipoS);
 	this->setTipoN(tipoN);
 	this->setMatMine(*matMine);
 }
 
-Picareta::Picareta(const Picareta &pic) : Ferramenta(TIPO_PICARETA, pic.maxRes, pic.atualRes)
+Picareta::Picareta(const Picareta &pic) : Ferramenta(TIPO_PICARETA, pic.maxRes, pic.atualRes, *pic.dataDeCriacao)
 {
 	this->tipoN = pic.tipoN;
 	this->tipoS = pic.tipoS;
 	this->matMine = pic.matMine;
 }
 
-Picareta::Picareta(int tipoN) : Ferramenta(TIPO_PICARETA)
+Picareta::Picareta(int tipoN, Data & dataDeCriacao) : Ferramenta(TIPO_PICARETA, dataDeCriacao)
 {
 	this->setTipoN(tipoN);
 	switch(tipoN)
@@ -52,8 +52,7 @@ Picareta::Picareta(int tipoN) : Ferramenta(TIPO_PICARETA)
 			cout << "Err\n";
 	}
 	this->setAtualRes(maxRes);
-	this->matMine = new Bloco();
-	
+	this->matMine = new Bloco();	
 }
 //FIM CONSTRUTORES
 //GET'S e SET'S

@@ -63,7 +63,7 @@ AS       := as
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) 
 
 
 
@@ -121,6 +121,14 @@ $(IntermediateDirectory)/Bloco.cpp$(DependSuffix): Bloco.cpp
 
 $(IntermediateDirectory)/Bloco.cpp$(PreprocessSuffix): Bloco.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Bloco.cpp$(PreprocessSuffix) "Bloco.cpp"
+
+$(IntermediateDirectory)/Data.cpp$(ObjectSuffix): Data.cpp $(IntermediateDirectory)/Data.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Data.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Data.cpp$(DependSuffix): Data.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Data.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Data.cpp$(DependSuffix) -MM "Data.cpp"
+
+$(IntermediateDirectory)/Data.cpp$(PreprocessSuffix): Data.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Data.cpp$(PreprocessSuffix) "Data.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

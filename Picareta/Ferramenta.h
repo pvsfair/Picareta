@@ -2,6 +2,7 @@
 #define FERRAMENTA_H
 
 #include <iostream>
+#include "Data.h"
 class Bloco;
 
 using namespace std;
@@ -17,8 +18,8 @@ public:
 	const static int DIAMANTE	= 3;
 	const static int OURO		= 4;
 	
-	Ferramenta(int);
-	Ferramenta(int, int, int);
+	Ferramenta(int, Data &);
+	Ferramenta(int, int, int, Data &);
 	
 	virtual void jogarNoChao();
 	virtual void checarEstado() const;
@@ -37,6 +38,7 @@ public:
 private:
 	int tipoFerramenta;
 protected:
+	Data * dataDeCriacao;
 	int maxRes;
 	int atualRes;
 };

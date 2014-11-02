@@ -10,9 +10,9 @@ using namespace std;
 class Picareta : public Ferramenta
 {
 public:
-	Picareta(string = "madeira", int = 0, int = 60, int = 60, Bloco * = new Bloco());
+	Picareta(string = "madeira", int = 0, int = 60, int = 60, Bloco * = new Bloco(), Data * = new Data(1,1,2000));
 	Picareta(const Picareta &);
-	Picareta(int);
+	Picareta(int, Data &);
 	
 	void setTipoN(int);
 	void setTipoS(string);

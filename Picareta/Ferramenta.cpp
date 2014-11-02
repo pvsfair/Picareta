@@ -1,15 +1,20 @@
 #include "Ferramenta.h"
 #include "Bloco.h"
+#include "Data.h"
 
-Ferramenta::Ferramenta(int tipoFerramenta)
+Ferramenta::Ferramenta(int tipoFerramenta, Data & dataDeCriacao)
 {
 	this->tipoFerramenta = tipoFerramenta;
+	this->dataDeCriacao = new Data(dataDeCriacao);
+	dataDeCriacao.print();
+	this->dataDeCriacao->print();
 }
-Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, int atualRes)
+Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, int atualRes, Data & dataDeCriacao)
 {
 	this->tipoFerramenta = tipoFerramenta;
 	this->setMaxRes(maxRes);
 	this->setAtualRes(atualRes);
+	this->dataDeCriacao = (&dataDeCriacao);
 }
 
 void Ferramenta::jogarNoChao()
@@ -67,6 +72,7 @@ int Ferramenta::getMaxRes() const
 
 Ferramenta::~Ferramenta()
 {
+	delete dataDeCriacao;
 	delete this;
 }
 

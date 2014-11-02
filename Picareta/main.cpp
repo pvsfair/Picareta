@@ -5,6 +5,7 @@
 #include <conio.h>
 
 #include "Bloco.h"
+#include "Data.h"
 #include "Ferramenta.h"
 #include "Picareta.h"
 
@@ -12,12 +13,22 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+	Data * data;
+	cout << "Qual a data de hoje?" << endl;
+	int dia, mes, ano;
+	cout << "Dia: ";
+	cin >> dia;
+	cout << "Mes: ";
+	cin >> mes;
+	cout << "Ano: ";
+	cin >> ano;
+	data = new Data(dia, mes, ano);
 	bool rodando = true;
 	int opcao = -1;
 	int opcaoInterna = -1;
 	char opcaoSN = 's';
 	Ferramenta *picareta;
-	picareta = new Picareta(0);
+	picareta = new Picareta(0, *data);
 	vector<Bloco> mapa;
 	
 	
@@ -47,7 +58,7 @@ int main(int argc, char **argv)
 		switch(opcao){
 			case 1:
 				opcaoInterna = Picareta::menuPicareta();
-				picareta = new Picareta(opcaoInterna);
+				picareta = new Picareta(opcaoInterna, *data);
 				//cout << "ate o momento voce so pode ter a picareta padrao" << endl;
 				break;
 			case 2:
@@ -97,6 +108,7 @@ int main(int argc, char **argv)
 	}
 	
 	delete picareta;
+	delete data;
 	
 	system("pause");
 	return 0;

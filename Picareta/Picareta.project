@@ -27,6 +27,8 @@
     <File Name="Ferramenta.cpp"/>
     <File Name="Bloco.h"/>
     <File Name="Bloco.cpp"/>
+    <File Name="Data.cpp"/>
+    <File Name="Data.h"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
