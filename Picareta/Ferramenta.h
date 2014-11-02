@@ -10,6 +10,7 @@ class Ferramenta
 {
 public:
 	const static int TIPO_PICARETA = 0;
+	
 	const static int MADEIRA	= 0;
 	const static int PEDRA		= 1;
 	const static int FERRO		= 2;
@@ -21,13 +22,16 @@ public:
 	
 	virtual void jogarNoChao();
 	virtual void checarEstado() const;
+	virtual void infoItem() const;
 	virtual inline void destruir();
-	virtual bool quebrarBloco(Bloco &);	
+	virtual bool quebrarBloco(Bloco &);
+	
 	virtual int getTipoN() const;
+	virtual string getTipoS() const;
 	
 	void setMaxRes(int);
 	void setAtualRes(int);
-	~Ferramenta();
+	virtual ~Ferramenta();
 private:
 	int tipoFerramenta;
 protected:

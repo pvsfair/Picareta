@@ -7,21 +7,22 @@
 
 using namespace std;
 
-class Picareta : Ferramenta
+class Picareta : public Ferramenta
 {
 public:
-	Picareta(string = "madeira", int = 0, int = 60, int = 60, Bloco = Bloco());
+	Picareta(string = "madeira", int = 0, int = 60, int = 60, Bloco * = new Bloco());
 	Picareta(const Picareta &);
 	Picareta(int);
 	
 	void setTipoN(int);
 	void setTipoS(string);
-	void setMatMine(Bloco);
+	void setMatMine(Bloco &);
 	
 	static int menuPicareta();
 	
 	virtual void jogarNoChao();
 	virtual void checarEstado() const;
+	virtual void infoItem() const;
 	virtual inline void destruir()
 	{
 		numPicaretasQuebradas++;
@@ -29,17 +30,18 @@ public:
 		cout << "Construa uma picareta Nova" << endl;
 	}
 	virtual bool quebrarBloco(Bloco &);	
+	
 	virtual int getTipoN() const;
 	
-	string getTipoS() const;
+	virtual string getTipoS() const;
 	
 	static void mostrarPicaretasQuebradas();
-	~Picareta();
+	virtual ~Picareta();
 	
 private:
 	int tipoN;
 	string tipoS;
-	Bloco matMine;
+	Bloco * matMine;
 	static int numPicaretasQuebradas;
 };
 

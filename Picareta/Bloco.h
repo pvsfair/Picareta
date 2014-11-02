@@ -9,7 +9,7 @@ using namespace std;
 
 class Bloco
 {
-	friend ostream &operator<< ( ostream &, const Bloco &);
+	friend ostream &operator<< (ostream &, const Bloco &);
 	
 public:
 	Bloco();

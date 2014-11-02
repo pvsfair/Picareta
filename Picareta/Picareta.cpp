@@ -9,11 +9,11 @@ using namespace std;
 int Picareta::numPicaretasQuebradas = 0;
 
 //CONSTRUTORES
-Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco matMine) : Ferramenta(TIPO_PICARETA, maxRes, atualRes)
+Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco * matMine) : Ferramenta(TIPO_PICARETA, maxRes, atualRes)
 {
 	this->setTipoS(tipoS);
 	this->setTipoN(tipoN);
-	this->setMatMine(matMine);
+	this->setMatMine(*matMine);
 }
 
 Picareta::Picareta(const Picareta &pic) : Ferramenta(TIPO_PICARETA, pic.maxRes, pic.atualRes)
@@ -52,7 +52,7 @@ Picareta::Picareta(int tipoN) : Ferramenta(TIPO_PICARETA)
 			cout << "Err\n";
 	}
 	this->setAtualRes(maxRes);
-	this->matMine = Bloco();
+	this->matMine = new Bloco();
 	
 }
 //FIM CONSTRUTORES
@@ -80,9 +80,9 @@ void Picareta::setTipoS(string tipoS)
 		this->tipoS = local;
 }
 
-void Picareta::setMatMine(Bloco b)
+void Picareta::setMatMine(Bloco & b)
 {
-	this->matMine = b;
+	this->matMine = new Bloco(b);
 }
 
 int Picareta::getTipoN() const
@@ -108,6 +108,12 @@ void Picareta::checarEstado() const
 	cout << "(" << this->atualRes << " de " << this->maxRes << ")" << endl;
 }
 
+void Picareta::infoItem() const
+{
+	Ferramenta::infoItem();
+	cout << "Picareta de " << this->tipoS << endl;
+}
+
 bool Picareta::quebrarBloco(Bloco &b)
 {
 	if(atualRes > 0)
@@ -130,6 +136,7 @@ string Picareta::getTipoS() const
 
 Picareta::~Picareta()
 {
+	delete matMine;
 	delete this;
 }
 

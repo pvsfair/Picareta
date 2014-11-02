@@ -22,6 +22,11 @@ void Ferramenta::checarEstado() const
 	
 }
 
+void Ferramenta::infoItem() const
+{
+	cout << "Este Item e uma ferramenta:" << endl;
+}
+
 void Ferramenta::destruir()
 {
 	
@@ -47,8 +52,13 @@ int Ferramenta::getTipoN() const
 	return -1;
 }
 
+string Ferramenta::getTipoS() const
+{
+	return "";
+}
+
 Ferramenta::~Ferramenta()
 {
-	
+	delete this;
 }
 

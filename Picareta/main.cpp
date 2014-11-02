@@ -41,7 +41,8 @@ int main(int argc, char **argv)
 		cout << "Você tem uma picareta de " << picareta->getTipoS() << " na sua mao" << endl;
 		cout << "1 - Construir Picareta" << endl;
 		cout << "2 - Checar Mapa" << endl;
-		cout << "3 - Sair" << endl;
+		cout << "3 - Checar Itens" << endl;
+		cout << "4 - Sair" << endl;
 		cin >> opcao;
 		switch(opcao){
 			case 1:
@@ -78,8 +79,16 @@ int main(int argc, char **argv)
 				}
 				break;
 			case 3:
-				cout << "Fechando o Minecraft" << endl;
-				Sleep(1000);
+				picareta->infoItem();
+				getch();
+				break;
+			case 4:
+				cout << "Fechando o Minecraft";
+				for (int i = 0; i < 3; i ++){
+					Sleep(150);
+					cout << ".";
+				}
+				Sleep(150);
 				return 0;
 				break;
 			
