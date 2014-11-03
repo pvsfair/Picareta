@@ -53,7 +53,7 @@ bool Bloco::quebrarBloco(const Ferramenta * f)
 	return true;
 }
 //Operator
-Bloco Bloco::operator = (Bloco b)
+Bloco Bloco::operator= (Bloco b)
 {
 	Bloco bloco;
 	

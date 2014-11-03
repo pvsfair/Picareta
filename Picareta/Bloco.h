@@ -29,7 +29,7 @@ public:
 	vector<float> getResMat() const;
 	vector<bool> getColherMat() const;
 	
-	Bloco operator = (Bloco b);
+	Bloco operator= (Bloco b);
 	
 	~Bloco();
 	

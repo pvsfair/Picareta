@@ -21,7 +21,7 @@ public:
 	const static int OURO		= 4;
 	
 	Ferramenta(int, Data &);
-	Ferramenta(int, int, int, Data &);
+	Ferramenta(int, int, float, Data &);
 	
 	virtual void jogarNoChao();
 	virtual void checarEstado() const;
@@ -34,6 +34,9 @@ public:
 	virtual int getAtualRes() const;
 	virtual int getMaxRes() const;
 	virtual string getTipoDaFerramenta() const;
+	
+	virtual Ferramenta operator = (Ferramenta);
+	
 	virtual ~Ferramenta();
 private:
 	const int tipoFerramentaN = 0;

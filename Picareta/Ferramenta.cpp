@@ -7,6 +7,8 @@ ostream &operator<< (ostream &output, const Ferramenta &ferramenta){
 	return output;
 }
 
+
+
 Ferramenta::Ferramenta(int tipoFerramenta, Data & dataDeCriacao)
 {
 	const_cast<int&>(this->tipoFerramentaN) = tipoFerramenta;
@@ -14,7 +16,7 @@ Ferramenta::Ferramenta(int tipoFerramenta, Data & dataDeCriacao)
 	this->dataDeCriacao = new Data(dataDeCriacao);// criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
 }
 
-Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, int atualRes, Data & dataDeCriacao)
+Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data & dataDeCriacao)
 {
 	const_cast<int&>(this->tipoFerramentaN) = tipoFerramenta;
 	this->setTipoFerramentaS(tipoFerramenta);
@@ -91,6 +93,18 @@ void Ferramenta::setTipoFerramentaS(int tipo)
 string Ferramenta::getTipoDaFerramenta() const
 {
 	return this->tipoFerramentaS;
+}
+
+Ferramenta Ferramenta::operator =(Ferramenta fer)
+{
+	Ferramenta ferramenta(fer.tipoFerramentaN, fer.maxRes, fer.atualRes, *fer.dataDeCriacao);
+	
+	//ferramenta.atualRes = fer.atualRes;
+	//ferramenta.dataDeCriacao = fer.dataDeCriacao;
+	//ferramenta.maxRes = fer.maxRes;
+	//ferramenta.setTipoFerramentaS(fer.tipoFerramentaN);
+	
+	return ferramenta;
 }
 
 Ferramenta::~Ferramenta()
