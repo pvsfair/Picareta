@@ -73,7 +73,10 @@ void Bloco::setNome(string nome)
 
 void Bloco::setResMat(float resMat[5])
 {
-	this->resMat = vector<float>(resMat,  resMat + sizeof(resMat) / sizeof(float));
+	//this->resMat = vector<float>(resMat,  resMat + sizeof(resMat) / sizeof(float));
+	for(int i = 0; i < 5; i ++){
+		this->resMat.push_back(resMat[i]);
+	}
 }
 
 void Bloco::setColherMat(bool colherMat[5])

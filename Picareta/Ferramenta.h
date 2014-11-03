@@ -34,16 +34,17 @@ public:
 	virtual int getAtualRes() const;
 	virtual int getMaxRes() const;
 	virtual string getTipoDaFerramenta() const;
+	virtual Data* getDataDeCriacao() const;
 	
-	virtual Ferramenta operator = (Ferramenta);
+	Ferramenta operator = (Ferramenta);
 	
 	virtual ~Ferramenta();
 private:
 	const int tipoFerramentaN = 0;
 	const string tipoFerramentaS = "";
 	void setTipoFerramentaS(int);
-protected:
 	Data * dataDeCriacao;
+protected:
 	const int maxRes = 0;
 	float atualRes;
 	

@@ -20,13 +20,15 @@ Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco * ma
 	this->setTipoS(tipoS);
 	this->setTipoN(tipoN);
 	this->setMatMine(*matMine);
+	cout << "Dentro do Construtor 1" << endl;
 }
 
-Picareta::Picareta(const Picareta &pic) : Ferramenta(TIPO_PICARETA, pic.maxRes, pic.atualRes, *pic.dataDeCriacao)
+Picareta::Picareta(const Picareta &pic) : Ferramenta(TIPO_PICARETA, pic.maxRes, pic.atualRes, *pic.getDataDeCriacao())
 {
 	const_cast<int&>(this->tipoN) = pic.tipoN;
 	const_cast<string&>(this->tipoS) = pic.tipoS;
-	this->matMine = pic.matMine;
+	this->matMine = new Bloco(*pic.matMine);
+	cout << "Dentro do Construtor 2" << endl;
 }
 
 Picareta::Picareta(int tipoN, Data & dataDeCriacao) : Ferramenta(TIPO_PICARETA, dataDeCriacao)
@@ -59,6 +61,7 @@ Picareta::Picareta(int tipoN, Data & dataDeCriacao) : Ferramenta(TIPO_PICARETA, 
 	}
 	this->setAtualRes(maxRes);
 	this->matMine = new Bloco();	
+	cout << "Dentro do Construtor 3" << endl;
 }
 //FIM CONSTRUTORES
 //GET'S e SET'S
@@ -159,6 +162,15 @@ bool Picareta::quebrarBloco(Bloco &b)
 string Picareta::getTipoS() const
 {
 	return this->tipoS;
+}
+
+Picareta Picareta::operator =(Picareta pic)
+{
+	Picareta picareta(pic);
+	
+	cout << "Dentro de picareta" << endl;
+	
+	return picareta;
 }
 
 Picareta::~Picareta()

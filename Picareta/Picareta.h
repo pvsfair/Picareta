@@ -38,6 +38,9 @@ public:
 	virtual string getTipoS() const;
 	
 	static void mostrarPicaretasQuebradas();
+	
+	Picareta operator =(Picareta);
+	
 	virtual ~Picareta();
 	
 private:

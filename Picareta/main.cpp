@@ -27,7 +27,9 @@ int main(int argc, char **argv)
 	int opcao = -1;
 	int opcaoInterna = -1;
 	char opcaoSN = 's';
-	Picareta *picareta = new Picareta(0, *data);
+	Ferramenta *picareta = new Picareta(0, *data);
+	picareta->getDataDeCriacao()->print();
+	getch();
 	vector<Bloco> mapa;
 	
 	float minerioFerroRes[5] = {15.0, 1.15, 0.75, 0.6, 15.0};
@@ -104,8 +106,12 @@ int main(int argc, char **argv)
 				Sleep(150);
 				return 0;
 				break;
+			case 5:
+				delete picareta;
+				break;
 			default:
 				cout << "Opcao Invalida";
+				getch();
 				break;
 		}
 	}

@@ -14,6 +14,10 @@ Ferramenta::Ferramenta(int tipoFerramenta, Data & dataDeCriacao)
 	const_cast<int&>(this->tipoFerramentaN) = tipoFerramenta;
 	this->setTipoFerramentaS(tipoFerramenta);
 	this->dataDeCriacao = new Data(dataDeCriacao);// criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
+	cout << 1;
+	this->dataDeCriacao->print();
+	cout << endl;
+	dataDeCriacao.print();
 }
 
 Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data & dataDeCriacao)
@@ -23,6 +27,11 @@ Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data & da
 	this->setMaxRes(maxRes);
 	this->setAtualRes(atualRes);
 	this->dataDeCriacao = new Data(dataDeCriacao);// criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
+	cout << 2;
+	this->dataDeCriacao->print();
+	cout << endl;
+	dataDeCriacao.print();
+	
 }
 
 void Ferramenta::jogarNoChao()
@@ -38,7 +47,7 @@ void Ferramenta::checarEstado() const
 void Ferramenta::infoItem() const
 {
 	cout << "Ferramenta criada no dia: ";
-	dataDeCriacao->print();
+	this->dataDeCriacao->print();
 	cout << endl << "Este Item e ";
 }
 
@@ -80,6 +89,11 @@ int Ferramenta::getMaxRes() const
 	return this->maxRes;
 }
 
+Data* Ferramenta::getDataDeCriacao() const
+{
+	return this->dataDeCriacao;
+}
+
 void Ferramenta::setTipoFerramentaS(int tipo)
 {
 	switch(this->tipoFerramentaN)
@@ -99,6 +113,7 @@ Ferramenta Ferramenta::operator =(Ferramenta fer)
 {
 	Ferramenta ferramenta(fer.tipoFerramentaN, fer.maxRes, fer.atualRes, *fer.dataDeCriacao);
 	
+	cout << "Dentro de ferramenta" << endl;
 	//ferramenta.atualRes = fer.atualRes;
 	//ferramenta.dataDeCriacao = fer.dataDeCriacao;
 	//ferramenta.maxRes = fer.maxRes;
