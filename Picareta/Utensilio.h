@@ -5,21 +5,29 @@
 
 using namespace std;
 
-class Utensilio
-{
-    friend ostream &operator<<(ostream &output, Utensilio &utensilio);
+class Utensilio {
+    friend ostream &operator<<(ostream &output, const Utensilio &utensilio);
 public:
-	Utensilio(int, float);
-        virtual void jogarNoChao() = 0;
-        virtual void checarEstado() = 0;
-        virtual void infoItem() = 0;
-        virtual void destruir()= 0;
-        
-	virtual ~Utensilio();
-private:
+    Utensilio();
+    Utensilio(int, float);
+    virtual void jogarNoChao() = 0;
+    virtual void checarEstado() = 0;
+    virtual void infoItem() = 0;
+    virtual inline void destruir() = 0;
+
+    virtual int getTipoN() const;
+    virtual string getTipoS() const;
+    virtual void setTipoN(int);
+    virtual void setTipoS(string);
+
+    virtual ~Utensilio();
+protected:
     string nome;
     const int maxRes = 0;
     float atualRes;
+    const int tipoN = 0;
+    const string tipoS = "";
+    
 };
 
 #endif // UTENSILIO_H

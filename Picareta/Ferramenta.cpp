@@ -2,129 +2,74 @@
 #include "Bloco.h"
 #include "Data.h"
 
-ostream &operator<< (ostream &output, const Ferramenta &ferramenta){
-	output << ferramenta.getTipoDaFerramenta();
-	return output;
+ostream &operator<<(ostream &output, const Ferramenta &ferramenta) {
+    output << ferramenta.getTipoDaFerramenta();
+    return output;
 }
 
-
-
-Ferramenta::Ferramenta(int tipoFerramenta, Data & dataDeCriacao)
-{
-	const_cast<int&>(this->tipoFerramentaN) = tipoFerramenta;
-	this->setTipoFerramentaS(tipoFerramenta);
-	this->dataDeCriacao = new Data(dataDeCriacao);// criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
-	cout << 1;
-	this->dataDeCriacao->print();
-	cout << endl;
-	dataDeCriacao.print();
+Ferramenta::Ferramenta(int tipoFerramenta, Data & dataDeCriacao) {
+    const_cast<int&> (this->tipoFerramentaN) = tipoFerramenta;
+    this->setTipoFerramentaS(tipoFerramenta);
+    this->dataDeCriacao = new Data(dataDeCriacao); // criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
+    cout << 1;
+    this->dataDeCriacao->print();
+    cout << endl;
+    dataDeCriacao.print();
 }
 
-Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data & dataDeCriacao)
-{
-	const_cast<int&>(this->tipoFerramentaN) = tipoFerramenta;
-	this->setTipoFerramentaS(tipoFerramenta);
-	this->setMaxRes(maxRes);
-	this->setAtualRes(atualRes);
-	this->dataDeCriacao = new Data(dataDeCriacao);// criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
-	cout << 2;
-	this->dataDeCriacao->print();
-	cout << endl;
-	dataDeCriacao.print();
-	
+Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data & dataDeCriacao) : Utensilio(maxRes, atualRes) {
+    const_cast<int&> (this->tipoFerramentaN) = tipoFerramenta;
+    this->setTipoFerramentaS(tipoFerramenta);
+    this->setMaxRes(maxRes);
+    this->setAtualRes(atualRes);
+    this->dataDeCriacao = new Data(dataDeCriacao); // criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
+    cout << 2;
+    this->dataDeCriacao->print();
+    cout << endl;
+    dataDeCriacao.print();
+
 }
 
-void Ferramenta::jogarNoChao()
-{
-	
+void Ferramenta::infoItem() const {
+    cout << "Ferramenta criada no dia: ";
+    this->dataDeCriacao->print();
+    cout << endl << "Este Item e ";
 }
 
-void Ferramenta::checarEstado() const
-{
-	
+void Ferramenta::setMaxRes(int maxRes) {
+    const_cast<int&> (this->maxRes) = maxRes;
 }
 
-void Ferramenta::infoItem() const
-{
-	cout << "Ferramenta criada no dia: ";
-	this->dataDeCriacao->print();
-	cout << endl << "Este Item e ";
+void Ferramenta::setAtualRes(int atualRes) {
+    this->atualRes = atualRes;
 }
 
-void Ferramenta::destruir()
-{
-	
+int Ferramenta::getAtualRes() const {
+    return this->atualRes;
 }
 
-bool Ferramenta::quebrarBloco(Bloco &)
-{
-	return true;
+int Ferramenta::getMaxRes() const {
+    return this->maxRes;
 }
 
-void Ferramenta::setMaxRes(int maxRes)
-{
-	const_cast<int&>(this->maxRes) = maxRes;
+Data* Ferramenta::getDataDeCriacao() const {
+    return this->dataDeCriacao;
 }
 
-void Ferramenta::setAtualRes(int atualRes)
-{
-	this->atualRes = atualRes;
+void Ferramenta::setTipoFerramentaS(int tipo) {
+    switch (this->tipoFerramentaN) {
+        case TIPO_PICARETA:
+            const_cast<string&> (this->tipoFerramentaS) = "Picareta";
+            break;
+    }
 }
 
-int Ferramenta::getTipoN() const
-{
-	return -1;
+string Ferramenta::getTipoDaFerramenta() const {
+    return this->tipoFerramentaS;
 }
 
-string Ferramenta::getTipoS() const
-{
-	return "";
-}
-int Ferramenta::getAtualRes() const
-{
-	return this->atualRes;
-}
-int Ferramenta::getMaxRes() const
-{
-	return this->maxRes;
-}
-
-Data* Ferramenta::getDataDeCriacao() const
-{
-	return this->dataDeCriacao;
-}
-
-void Ferramenta::setTipoFerramentaS(int tipo)
-{
-	switch(this->tipoFerramentaN)
-	{
-		case TIPO_PICARETA:
-			const_cast<string&>(this->tipoFerramentaS) = "Picareta";
-			break;
-	}
-}
-
-string Ferramenta::getTipoDaFerramenta() const
-{
-	return this->tipoFerramentaS;
-}
-
-Ferramenta Ferramenta::operator =(Ferramenta fer)
-{
-	Ferramenta ferramenta(fer.tipoFerramentaN, fer.maxRes, fer.atualRes, *fer.dataDeCriacao);
-	
-	cout << "Dentro de ferramenta" << endl;
-	//ferramenta.atualRes = fer.atualRes;
-	//ferramenta.dataDeCriacao = fer.dataDeCriacao;
-	//ferramenta.maxRes = fer.maxRes;
-	//ferramenta.setTipoFerramentaS(fer.tipoFerramentaN);
-	
-	return ferramenta;
-}
-
-Ferramenta::~Ferramenta()
-{
-	delete dataDeCriacao;
-	//delete this;
+Ferramenta::~Ferramenta() {
+    delete dataDeCriacao;
+    //delete this;
 }
 
