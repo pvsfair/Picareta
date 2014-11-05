@@ -62,6 +62,7 @@ Picareta::Picareta(int tipoN, Data & dataDeCriacao) : Ferramenta(TIPO_PICARETA, 
 }
 //FIM CONSTRUTORES
 //GET'S e SET'S
+// <editor-fold defaultstate="collapsed" desc="Get's e Set's">
 
 void Picareta::setTipoN(int tipoN) {
     if (tipoN > OURO || tipoN < MADEIRA)
@@ -92,7 +93,8 @@ int Picareta::getTipoN() const {
 
 string Picareta::getTipoS() const {
     return this->tipoS;
-}
+}// </editor-fold>
+
 //FIM GET'S e SET'S
 
 int Picareta::menuPicareta() {

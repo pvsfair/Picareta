@@ -31,6 +31,10 @@
     <File Name="Data.h"/>
     <File Name="Utensilio.h"/>
     <File Name="Utensilio.cpp"/>
+    <File Name="Pa.h"/>
+    <File Name="Pa.cpp"/>
+    <File Name="Machado.h"/>
+    <File Name="Machado.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

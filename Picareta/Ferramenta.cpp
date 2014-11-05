@@ -36,6 +36,8 @@ void Ferramenta::infoItem() const {
     cout << endl << "Este Item e ";
 }
 
+// <editor-fold defaultstate="collapsed" desc="Get's e Set's">
+
 void Ferramenta::setMaxRes(int maxRes) {
     const_cast<int&> (this->maxRes) = maxRes;
 }
@@ -66,7 +68,8 @@ void Ferramenta::setTipoFerramentaS(int tipo) {
 
 string Ferramenta::getTipoDaFerramenta() const {
     return this->tipoFerramentaS;
-}
+}// </editor-fold>
+
 
 Ferramenta::~Ferramenta() {
     delete dataDeCriacao;
