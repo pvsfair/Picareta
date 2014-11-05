@@ -20,7 +20,7 @@ ostream &operator<<(ostream &output, const Pa &pa) {
 Pa::Pa(string tipoS, int tipoN, int maxRes, int atualRes, Bloco* blocoObjetivo, Data* dataDeCriacao) : Ferramenta(TIPO_PA, maxRes, atualRes, dataDeCriacao) {
     this->setTipoS(tipoS);
     this->setTipoN(tipoN);
-    this->blocoObjetivo = blocoObjetivo;
+    this->blocoObjetivo = new Bloco(*blocoObjetivo);
 }
 
 Pa::Pa(const Pa& pa) : Ferramenta(TIPO_PA, pa.maxRes, pa.atualRes, pa.getDataDeCriacao()) {
@@ -174,7 +174,7 @@ string Pa::getTipoS() const {
 }
 
 Pa::~Pa() {
-
+    delete blocoObjetivo;
 }
 
 

@@ -3,12 +3,14 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <conio.h>
+#include <typeinfo>
 
 #include "Bloco.h"
 #include "Data.h"
 #include "Ferramenta.h"
 #include "Picareta.h"
 #include "Pa.h"
+#include "Machado.h"
 
 using namespace std;
 
@@ -23,11 +25,24 @@ int main(int argc, char **argv) {
     cout << "Ano: ";
     cin >> ano;
     data = new Data(dia, mes, ano);
+
     bool rodando = true;
     int opcao = -1;
     int opcaoInterna = -1;
     char opcaoSN = 's';
-    Ferramenta *ferramenta = new Pa(0, *data);
+    int itemAtivo = 0;
+
+    Picareta *picareta1 = new Picareta(Utensilio::MADEIRA, *data);
+    Picareta *picareta2 = new Picareta(Utensilio::FERRO, *data);
+    Picareta *picareta3 = new Picareta(Utensilio::DIAMANTE, *data);
+    Pa *pa1 = new Pa(Utensilio::MADEIRA, *data);
+    Pa *pa2 = new Pa(Utensilio::PEDRA, *data);
+    Pa *pa3 = new Pa(Utensilio::DIAMANTE, *data);
+    Machado *machado1 = new Machado(Utensilio::MADEIRA, *data);
+    Machado *machado2 = new Machado(Utensilio::OURO, *data);
+    Machado *machado3 = new Machado(Utensilio::DIAMANTE, *data);
+
+    vector<Ferramenta*> inventario;
     vector<Bloco> mapa;
 
     float minerioFerroRes[5] = {15.0, 1.15, 0.75, 0.6, 15.0};
@@ -43,14 +58,26 @@ int main(int argc, char **argv) {
     Bloco bD("Minerio de Diamante", minerioDiamanteRes, minerioDiamanteColh);
     mapa.push_back(bD);
 
+    inventario.push_back(picareta1);
+    inventario.push_back(picareta2);
+    inventario.push_back(picareta3);
+    inventario.push_back(pa1);
+    inventario.push_back(pa2);
+    inventario.push_back(pa3);
+    inventario.push_back(machado1);
+    inventario.push_back(machado2);
+    inventario.push_back(machado3);
+
     while (rodando) {
         system("cls");
         cout << "==========Minecraft==========" << endl;
-        cout << "Voce tem uma " << *ferramenta << " na sua mao" << endl;
+
+        cout << "Voce tem uma " << *inventario[itemAtivo] << " na sua mao" << endl;
         cout << "1 - Construir Ferramenta" << endl;
         cout << "2 - Checar Mapa" << endl;
         cout << "3 - Checar Itens" << endl;
-        cout << "4 - Sair" << endl;
+        cout << "4 - Checar Inventario" << endl;
+        cout << "5 - Sair" << endl;
         cin >> opcao;
         switch (opcao) {
             case 1:
@@ -62,14 +89,15 @@ int main(int argc, char **argv) {
                 switch (opcaoInterna) {
                     case 1:
                         opcaoInterna = Picareta::menuPicareta();
-                        ferramenta = new Picareta(opcaoInterna, *data);
+                        inventario[itemAtivo] = new Picareta(opcaoInterna, *data);
                         break;
                     case 2:
                         opcaoInterna = Pa::menuPa();
-                        ferramenta = new Pa(opcaoInterna, *data);
+                        inventario[itemAtivo] = new Pa(opcaoInterna, *data);
                         break;
                     case 3:
-                        cout << "asjdn" << endl;
+                        opcaoInterna = Machado::menuMachado();
+                        inventario[itemAtivo] = new Machado(opcaoInterna, *data);
                         break;
                     default:
                         cout << "Numero invalido." << endl;
@@ -82,13 +110,13 @@ int main(int argc, char **argv) {
                     cout << endl;
                 }
                 getch();
-                cout << "Voce deseja destruir algum bloco?" << endl;
+                cout << "Voce deseja destruir algum bloco? (S/N)" << endl;
                 opcaoSN = getch();
                 if (opcaoSN == 's') {
                     cout << "Qual bloco vc deseja quebrar?" << endl;
                     cin >> opcaoInterna;
                     if (mapa[opcaoInterna].getNome() != "invalid") {
-                        if (ferramenta->quebrarBloco(mapa[opcaoInterna]))
+                        if (inventario[itemAtivo]->quebrarBloco(mapa[opcaoInterna]))
                             mapa[opcaoInterna].setInvalid();
                     } else cout << "bloco invalido";
                     getch();
@@ -100,13 +128,43 @@ int main(int argc, char **argv) {
                 }
                 break;
             case 3:
-                ferramenta->infoItem();
+                inventario[itemAtivo]->infoItem();
                 getch();
                 cout << endl;
-                ferramenta->checarEstado();
+                inventario[itemAtivo]->checarEstado();
                 getch();
                 break;
             case 4:
+                cout << "Seu Inventario: " << endl;
+                for (int i = 0; i < inventario.size(); i++) {
+                    Picareta* derivedPic = dynamic_cast<Picareta*> (inventario[i]);
+                    if (derivedPic != 0) cout << i + 1 << " - " << derivedPic;
+                    Pa* derivedPa = dynamic_cast<Pa*> (inventario[i]);
+                    if (derivedPa != 0) cout << i + 1 << " - " << derivedPa;
+                    Machado* derivedMach = dynamic_cast<Machado*> (inventario[i]);
+                    if (derivedMach != 0) cout << i + 1 << " - " << derivedMach;
+                }
+                cout << "Voce desesa trocar o iten da sua mao? (S/N)" << endl;
+                opcaoSN = getch();
+                if (opcaoSN == 's') {
+                    cout << "Qual iten voce deseja pegar?" << endl;
+                    cin >> opcaoInterna;
+                    if (opcaoInterna < 1 || opcaoInterna > inventario.size()) {
+                        cout << "Numero invalido" << endl;
+                        cout << "voce nao trocou de ferramenta" << endl;
+                    } else {
+                        itemAtivo = opcaoInterna;
+                        cout << "Voce tem em suas maos um(a) " << typeid (*inventario[itemAtivo]).name() << endl;
+                    }
+                    getch();
+                } else if (opcaoSN == 'n') {
+                    break;
+                } else {
+                    cout << "opcao invalida" << endl;
+                    getch();
+                }
+                break;
+            case 5:
                 cout << "Fechando o Minecraft";
                 for (int i = 0; i < 3; i++) {
                     Sleep(150);
@@ -115,9 +173,6 @@ int main(int argc, char **argv) {
                 Sleep(150);
                 return 0;
                 break;
-            case 5:
-                delete ferramenta;
-                break;
             default:
                 cout << "Opcao Invalida";
                 getch();
@@ -125,7 +180,15 @@ int main(int argc, char **argv) {
         }
     }
 
-    delete ferramenta;
+    delete picareta1;
+    delete picareta2;
+    delete picareta3;
+    delete pa1;
+    delete pa2;
+    delete pa3;
+    delete machado1;
+    delete machado2;
+    delete machado3;
     delete data;
 
     system("pause");

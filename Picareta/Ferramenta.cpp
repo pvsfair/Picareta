@@ -70,7 +70,7 @@ void Ferramenta::setTipoFerramentaS(int tipo) {
             const_cast<string&> (this->tipoFerramentaS) = "Pa";
             break;
         case TIPO_MACHADO:
-            const_cast<string&> (this->tipoFerramentaS) = "Machado";
+            const_cast<string&> (this->tipoFerramentaS) = "Machado  ";
             break;
             
     }
