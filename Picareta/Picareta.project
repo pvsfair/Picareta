@@ -29,6 +29,8 @@
     <File Name="Bloco.cpp"/>
     <File Name="Data.cpp"/>
     <File Name="Data.h"/>
+    <File Name="Utensilio.h"/>
+    <File Name="Utensilio.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
