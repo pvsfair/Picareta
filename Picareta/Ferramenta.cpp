@@ -7,17 +7,16 @@ ostream &operator<<(ostream &output, const Ferramenta &ferramenta) {
     return output;
 }
 
-Ferramenta::Ferramenta(){
-    
+Ferramenta::Ferramenta() {
+    const_cast<int&> (this->tipoFerramentaN) = TIPO_PICARETA;
+    this->setTipoFerramentaS(TIPO_PICARETA);
+    this->dataDeCriacao = new Data();
 }
+
 Ferramenta::Ferramenta(int tipoFerramenta, Data * dataDeCriacao) {
     const_cast<int&> (this->tipoFerramentaN) = tipoFerramenta;
     this->setTipoFerramentaS(tipoFerramenta);
     this->dataDeCriacao = new Data(*dataDeCriacao); // criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
-    cout << 1;
-    this->dataDeCriacao->print();
-    cout << endl;
-    dataDeCriacao->print();
 }
 
 Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data * dataDeCriacao) : Utensilio(maxRes, atualRes) {
@@ -26,11 +25,6 @@ Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data * da
     this->setMaxRes(maxRes);
     this->setAtualRes(atualRes);
     this->dataDeCriacao = new Data(*dataDeCriacao); // criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
-    cout << 2;
-    this->dataDeCriacao->print();
-    cout << endl;
-    dataDeCriacao->print();
-
 }
 
 void Ferramenta::infoItem() const {
@@ -72,14 +66,13 @@ void Ferramenta::setTipoFerramentaS(int tipo) {
         case TIPO_MACHADO:
             const_cast<string&> (this->tipoFerramentaS) = "Machado  ";
             break;
-            
+
     }
 }
 
 string Ferramenta::getTipoDaFerramenta() const {
     return this->tipoFerramentaS;
 }// </editor-fold>
-
 
 Ferramenta::~Ferramenta() {
     delete dataDeCriacao;
