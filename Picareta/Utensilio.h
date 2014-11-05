@@ -11,8 +11,8 @@ public:
     Utensilio();
     Utensilio(int, float);
     virtual void jogarNoChao() = 0;
-    virtual void checarEstado() = 0;
-    virtual void infoItem() = 0;
+    virtual void checarEstado() const = 0;
+    virtual void infoItem() const = 0;
     virtual inline void destruir() = 0;
 
     virtual int getTipoN() const;

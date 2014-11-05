@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
     int opcao = -1;
     int opcaoInterna = -1;
     char opcaoSN = 's';
-    Ferramenta *picareta = new Picareta(0, *data);
+    Picareta *picareta = new Picareta(0, *data);
     picareta->getDataDeCriacao()->print();
     getch();
     vector<Bloco> mapa;

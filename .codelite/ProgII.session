@@ -1,54 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\Paulo\Documents\GitHub\Picareta\ProgII.workspace">
-  <int Value="1" Name="m_selectedTab"/>
+  <int Value="0" Name="m_selectedTab"/>
   <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\ProgII.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\main.cpp" Name="FileName"/>
-      <int Value="89" Name="FirstVisibleLine"/>
-      <int Value="107" Name="CurrentLine"/>
+      <int Value="21" Name="FirstVisibleLine"/>
+      <int Value="74" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\Bloco.h" Name="FileName"/>
-      <int Value="19" Name="FirstVisibleLine"/>
+      <int Value="9" Name="FirstVisibleLine"/>
       <int Value="34" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\Bloco.cpp" Name="FileName"/>
-      <int Value="66" Name="FirstVisibleLine"/>
+      <int Value="51" Name="FirstVisibleLine"/>
       <int Value="76" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\Ferramenta.h" Name="FileName"/>
-      <int Value="30" Name="FirstVisibleLine"/>
+      <int Value="9" Name="FirstVisibleLine"/>
       <int Value="34" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\Ferramenta.cpp" Name="FileName"/>
-      <int Value="101" Name="FirstVisibleLine"/>
-      <int Value="111" Name="CurrentLine"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="11" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\Picareta.h" Name="FileName"/>
-      <int Value="31" Name="FirstVisibleLine"/>
-      <int Value="49" Name="CurrentLine"/>
+      <int Value="18" Name="FirstVisibleLine"/>
+      <int Value="45" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\Picareta.cpp" Name="FileName"/>
+      <int Value="61" Name="FirstVisibleLine"/>
+      <int Value="65" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\Utensilio.h" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="10" Name="CurrentLine"/>
+      <int Value="20" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="C:\Users\Paulo\Documents\GitHub\Picareta\Picareta\Utensilio.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="12" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
