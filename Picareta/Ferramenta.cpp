@@ -7,26 +7,29 @@ ostream &operator<<(ostream &output, const Ferramenta &ferramenta) {
     return output;
 }
 
-Ferramenta::Ferramenta(int tipoFerramenta, Data & dataDeCriacao) {
+Ferramenta::Ferramenta(){
+    
+}
+Ferramenta::Ferramenta(int tipoFerramenta, Data * dataDeCriacao) {
     const_cast<int&> (this->tipoFerramentaN) = tipoFerramenta;
     this->setTipoFerramentaS(tipoFerramenta);
-    this->dataDeCriacao = new Data(dataDeCriacao); // criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
+    this->dataDeCriacao = new Data(*dataDeCriacao); // criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
     cout << 1;
     this->dataDeCriacao->print();
     cout << endl;
-    dataDeCriacao.print();
+    dataDeCriacao->print();
 }
 
-Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data & dataDeCriacao) : Utensilio(maxRes, atualRes) {
+Ferramenta::Ferramenta(int tipoFerramenta, int maxRes, float atualRes, Data * dataDeCriacao) : Utensilio(maxRes, atualRes) {
     const_cast<int&> (this->tipoFerramentaN) = tipoFerramenta;
     this->setTipoFerramentaS(tipoFerramenta);
     this->setMaxRes(maxRes);
     this->setAtualRes(atualRes);
-    this->dataDeCriacao = new Data(dataDeCriacao); // criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
+    this->dataDeCriacao = new Data(*dataDeCriacao); // criado usando um construtor cópia que foi aparentemente gerado pelo compilador.
     cout << 2;
     this->dataDeCriacao->print();
     cout << endl;
-    dataDeCriacao.print();
+    dataDeCriacao->print();
 
 }
 
@@ -63,6 +66,13 @@ void Ferramenta::setTipoFerramentaS(int tipo) {
         case TIPO_PICARETA:
             const_cast<string&> (this->tipoFerramentaS) = "Picareta";
             break;
+        case TIPO_PA:
+            const_cast<string&> (this->tipoFerramentaS) = "Pa";
+            break;
+        case TIPO_MACHADO:
+            const_cast<string&> (this->tipoFerramentaS) = "Machado";
+            break;
+            
     }
 }
 

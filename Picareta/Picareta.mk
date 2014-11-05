@@ -63,7 +63,7 @@ AS       := as
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
 UNIT_TEST_PP_SRC_DIR:=C:\UnitTest++-1.3
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Utensilio.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Picareta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Ferramenta.cpp$(ObjectSuffix) $(IntermediateDirectory)/Bloco.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Utensilio.cpp$(ObjectSuffix) $(IntermediateDirectory)/Pa.cpp$(ObjectSuffix) $(IntermediateDirectory)/Machado.cpp$(ObjectSuffix) 
 
 
 
@@ -137,6 +137,22 @@ $(IntermediateDirectory)/Utensilio.cpp$(DependSuffix): Utensilio.cpp
 
 $(IntermediateDirectory)/Utensilio.cpp$(PreprocessSuffix): Utensilio.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Utensilio.cpp$(PreprocessSuffix) "Utensilio.cpp"
+
+$(IntermediateDirectory)/Pa.cpp$(ObjectSuffix): Pa.cpp $(IntermediateDirectory)/Pa.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Pa.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Pa.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Pa.cpp$(DependSuffix): Pa.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Pa.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Pa.cpp$(DependSuffix) -MM "Pa.cpp"
+
+$(IntermediateDirectory)/Pa.cpp$(PreprocessSuffix): Pa.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Pa.cpp$(PreprocessSuffix) "Pa.cpp"
+
+$(IntermediateDirectory)/Machado.cpp$(ObjectSuffix): Machado.cpp $(IntermediateDirectory)/Machado.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Paulo/Documents/GitHub/Picareta/Picareta/Machado.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Machado.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Machado.cpp$(DependSuffix): Machado.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Machado.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Machado.cpp$(DependSuffix) -MM "Machado.cpp"
+
+$(IntermediateDirectory)/Machado.cpp$(PreprocessSuffix): Machado.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Machado.cpp$(PreprocessSuffix) "Machado.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

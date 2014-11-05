@@ -8,6 +8,7 @@
 #include "Data.h"
 #include "Ferramenta.h"
 #include "Picareta.h"
+#include "Pa.h"
 
 using namespace std;
 
@@ -26,9 +27,7 @@ int main(int argc, char **argv) {
     int opcao = -1;
     int opcaoInterna = -1;
     char opcaoSN = 's';
-    Picareta *picareta = new Picareta(0, *data);
-    picareta->getDataDeCriacao()->print();
-    getch();
+    Ferramenta *ferramenta = new Pa(0, *data);
     vector<Bloco> mapa;
 
     float minerioFerroRes[5] = {15.0, 1.15, 0.75, 0.6, 15.0};
@@ -47,16 +46,34 @@ int main(int argc, char **argv) {
     while (rodando) {
         system("cls");
         cout << "==========Minecraft==========" << endl;
-        cout << "Voce tem uma " << *picareta << " na sua mao" << endl;
-        cout << "1 - Construir Picareta" << endl;
+        cout << "Voce tem uma " << *ferramenta << " na sua mao" << endl;
+        cout << "1 - Construir Ferramenta" << endl;
         cout << "2 - Checar Mapa" << endl;
         cout << "3 - Checar Itens" << endl;
         cout << "4 - Sair" << endl;
         cin >> opcao;
         switch (opcao) {
             case 1:
-                opcaoInterna = Picareta::menuPicareta();
-                picareta = new Picareta(opcaoInterna, *data);
+                cout << "Voce deseja construir:" << endl;
+                cout << "1 - Uma picareta" << endl;
+                cout << "2 - Uma pa" << endl;
+                cout << "3 - Um machado" << endl;
+                cin >> opcaoInterna;
+                switch (opcaoInterna) {
+                    case 1:
+                        opcaoInterna = Picareta::menuPicareta();
+                        ferramenta = new Picareta(opcaoInterna, *data);
+                        break;
+                    case 2:
+                        opcaoInterna = Pa::menuPa();
+                        ferramenta = new Pa(opcaoInterna, *data);
+                        break;
+                    case 3:
+                        cout << "asjdn" << endl;
+                        break;
+                    default:
+                        cout << "Numero invalido." << endl;
+                }
                 //cout << "ate o momento voce so pode ter a picareta padrao" << endl;
                 break;
             case 2:
@@ -71,7 +88,7 @@ int main(int argc, char **argv) {
                     cout << "Qual bloco vc deseja quebrar?" << endl;
                     cin >> opcaoInterna;
                     if (mapa[opcaoInterna].getNome() != "invalid") {
-                        if (picareta->quebrarBloco(mapa[opcaoInterna]))
+                        if (ferramenta->quebrarBloco(mapa[opcaoInterna]))
                             mapa[opcaoInterna].setInvalid();
                     } else cout << "bloco invalido";
                     getch();
@@ -83,10 +100,10 @@ int main(int argc, char **argv) {
                 }
                 break;
             case 3:
-                picareta->infoItem();
+                ferramenta->infoItem();
                 getch();
                 cout << endl;
-                picareta->checarEstado();
+                ferramenta->checarEstado();
                 getch();
                 break;
             case 4:
@@ -99,7 +116,7 @@ int main(int argc, char **argv) {
                 return 0;
                 break;
             case 5:
-                delete picareta;
+                delete ferramenta;
                 break;
             default:
                 cout << "Opcao Invalida";
@@ -108,7 +125,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    delete picareta;
+    delete ferramenta;
     delete data;
 
     system("pause");

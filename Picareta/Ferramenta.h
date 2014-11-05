@@ -15,14 +15,9 @@ public:
     const static int TIPO_PA = 1;
     const static int TIPO_MACHADO = 2;
 
-    const static int MADEIRA = 0;
-    const static int PEDRA = 1;
-    const static int FERRO = 2;
-    const static int DIAMANTE = 3;
-    const static int OURO = 4;
-
-    Ferramenta(int, Data &);
-    Ferramenta(int, int, float, Data &);
+    Ferramenta();
+    Ferramenta(int, Data * = new Data());
+    Ferramenta(int, int, float, Data *);
 
     virtual void infoItem() const;
     virtual bool quebrarBloco(Bloco &)=0;

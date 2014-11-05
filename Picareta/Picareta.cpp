@@ -1,5 +1,8 @@
 #include "Picareta.h"
 #include "Bloco.h"
+#include "Data.h"
+
+
 #include <iostream>
 #include <string>
 #include <locale>
@@ -16,21 +19,19 @@ ostream &operator<<(ostream &output, const Picareta &picareta) {
 
 //CONSTRUTORES
 
-Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco * matMine, Data * dataDeCriacao) : Ferramenta(TIPO_PICARETA, maxRes, atualRes, *dataDeCriacao) {
+Picareta::Picareta(string tipoS, int tipoN, int maxRes, int atualRes, Bloco * matMine, Data * dataDeCriacao) : Ferramenta(TIPO_PICARETA, maxRes, atualRes, dataDeCriacao) {
     this->setTipoS(tipoS);
     this->setTipoN(tipoN);
-    this->setMatMine(*matMine);
-    cout << "Dentro do Construtor 1" << endl;
+    this->setMatMine(matMine);
 }
 
-Picareta::Picareta(const Picareta &pic) : Ferramenta(TIPO_PICARETA, pic.maxRes, pic.atualRes, *pic.getDataDeCriacao()) {
+Picareta::Picareta(const Picareta &pic) : Ferramenta(TIPO_PICARETA, pic.maxRes, pic.atualRes, pic.getDataDeCriacao()) {
     const_cast<int&> (this->tipoN) = pic.tipoN;
     const_cast<string&> (this->tipoS) = pic.tipoS;
     this->matMine = new Bloco(*pic.matMine);
-    cout << "Dentro do Construtor 2" << endl;
 }
 
-Picareta::Picareta(int tipoN, Data & dataDeCriacao) : Ferramenta(TIPO_PICARETA, dataDeCriacao) {
+Picareta::Picareta(int tipoN, Data & dataDeCriacao) : Ferramenta(TIPO_PICARETA, &dataDeCriacao) {
     this->setTipoN(tipoN);
     switch (tipoN) {
         case MADEIRA:
@@ -58,8 +59,16 @@ Picareta::Picareta(int tipoN, Data & dataDeCriacao) : Ferramenta(TIPO_PICARETA, 
     }
     this->setAtualRes(maxRes);
     this->matMine = new Bloco();
-    cout << "Dentro do Construtor 3" << endl;
 }
+
+Picareta::Picareta() : Ferramenta(TIPO_PICARETA, new Data()) {
+    this->setTipoS(Utensilio::MADEIRA);
+    this->setTipoN(0);
+    this->setMatMine(new Bloco());
+    this->setTipoS("madeira");
+    this->setMaxRes(60);
+}
+
 //FIM CONSTRUTORES
 //GET'S e SET'S
 // <editor-fold defaultstate="collapsed" desc="Get's e Set's">
@@ -83,8 +92,8 @@ void Picareta::setTipoS(string tipoS) {
         const_cast<string&> (this->tipoS) = local;
 }
 
-void Picareta::setMatMine(Bloco & b) {
-    this->matMine = new Bloco(b);
+void Picareta::setMatMine(Bloco * b) {
+    this->matMine = new Bloco(*b);
 }
 
 int Picareta::getTipoN() const {
@@ -99,7 +108,7 @@ string Picareta::getTipoS() const {
 
 int Picareta::menuPicareta() {
     int opcao = -1;
-    cout << "Menu de criação de Picareta" << endl;
+    cout << "Menu de criacao de Picareta" << endl;
     cout << "Voce deseja criar uma picareta de qual material?" << endl;
     cout << "1 - Madeira" << endl;
     cout << "2 - Pedra" << endl;
@@ -126,13 +135,13 @@ void Picareta::jogarNoChao() {
 }
 
 void Picareta::checarEstado() const {
-    cout << "Sua picareta de " << this->tipoS << " esta com " << (this->atualRes / this->maxRes) * 100.0 << "% de resistencia ";
+    cout << "Sua " << *this << " esta com " << (this->atualRes / this->maxRes) * 100.0 << "% de resistencia ";
     cout << "(" << this->atualRes << " de " << this->maxRes << ")" << endl;
 }
 
 void Picareta::infoItem() const {
     Ferramenta::infoItem();
-    cout << "uma Picareta de " << this->tipoS << '.' << endl;
+    cout << "uma " << *this << '.' << endl;
 }
 
 bool Picareta::quebrarBloco(Bloco &b) {

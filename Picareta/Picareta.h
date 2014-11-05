@@ -11,31 +11,33 @@ class Picareta : public Ferramenta {
     friend ostream &operator<<(ostream &, const Picareta &);
 
 public:
-    Picareta(string = "madeira", int = 0, int = 60, int = 60, Bloco * = new Bloco(), Data * = new Data(1, 1, 2000));
+    Picareta(string, int = 0, int = 60, int = 60, Bloco * = new Bloco(), Data * = new Data());
     Picareta(const Picareta &);
     Picareta(int, Data &);
+    Picareta();
 
     static int menuPicareta();
 
     void jogarNoChao();
     virtual void checarEstado() const;
     virtual void infoItem() const;
+
     virtual inline void destruir() {
         numPicaretasQuebradas++;
-        cout << "Sua Picareta de " << this->tipoS << " quebrou." << endl;
+        cout << "Sua " << *this << " quebrou." << endl;
         cout << "Construa uma picareta Nova" << endl;
     }
     virtual bool quebrarBloco(Bloco &);
-    
+
     static void mostrarPicaretasQuebradas();
     void jogarPicaretaNoAr();
-    
+
     virtual int getTipoN() const;
     virtual string getTipoS() const;
 
     virtual void setTipoN(int);
     virtual void setTipoS(string);
-    virtual void setMatMine(Bloco &);
+    virtual void setMatMine(Bloco *);
 
     Picareta operator=(Picareta);
 

@@ -1,1 +1,1 @@
-./Debug/main.cpp.o ./Debug/Picareta.cpp.o ./Debug/Ferramenta.cpp.o ./Debug/Bloco.cpp.o ./Debug/Data.cpp.o ./Debug/Utensilio.cpp.o
+./Debug/main.cpp.o ./Debug/Picareta.cpp.o ./Debug/Ferramenta.cpp.o ./Debug/Bloco.cpp.o ./Debug/Data.cpp.o ./Debug/Utensilio.cpp.o ./Debug/Pa.cpp.o ./Debug/Machado.cpp.o
