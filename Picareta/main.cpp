@@ -71,8 +71,16 @@ int main(int argc, char **argv) {
     while (rodando) {
         system("cls");
         cout << "==========Minecraft==========" << endl;
-
-        cout << "Voce tem uma " << *inventario[itemAtivo] << " na sua mao" << endl;
+        cout << "Voce tem uma ";
+        
+        Picareta* derivedPic = dynamic_cast<Picareta*> (inventario[itemAtivo]);
+        if (derivedPic != 0) cout << *derivedPic;
+        Pa* derivedPa = dynamic_cast<Pa*> (inventario[itemAtivo]);
+        if (derivedPa != 0) cout << *derivedPa;
+        Machado* derivedMach = dynamic_cast<Machado*> (inventario[itemAtivo]);
+        if (derivedMach != 0) cout << *derivedMach;
+        
+        cout << " na sua mao" << endl;
         cout << "1 - Construir Ferramenta" << endl;
         cout << "2 - Checar Mapa" << endl;
         cout << "3 - Checar Itens" << endl;
@@ -138,11 +146,11 @@ int main(int argc, char **argv) {
                 cout << "Seu Inventario: " << endl;
                 for (int i = 0; i < inventario.size(); i++) {
                     Picareta* derivedPic = dynamic_cast<Picareta*> (inventario[i]);
-                    if (derivedPic != 0) cout << i + 1 << " - " << derivedPic;
+                    if (derivedPic != 0) cout << i + 1 << " - " << *derivedPic << endl;
                     Pa* derivedPa = dynamic_cast<Pa*> (inventario[i]);
-                    if (derivedPa != 0) cout << i + 1 << " - " << derivedPa;
+                    if (derivedPa != 0) cout << i + 1 << " - " << *derivedPa << endl;
                     Machado* derivedMach = dynamic_cast<Machado*> (inventario[i]);
-                    if (derivedMach != 0) cout << i + 1 << " - " << derivedMach;
+                    if (derivedMach != 0) cout << i + 1 << " - " << *derivedMach << endl;
                 }
                 cout << "Voce desesa trocar o iten da sua mao? (S/N)" << endl;
                 opcaoSN = getch();
@@ -154,7 +162,7 @@ int main(int argc, char **argv) {
                         cout << "voce nao trocou de ferramenta" << endl;
                     } else {
                         itemAtivo = opcaoInterna;
-                        cout << "Voce tem em suas maos um(a) " << typeid (*inventario[itemAtivo]).name() << endl;
+                        cout << "Voce tem em suas maos um(a) " << *inventario[itemAtivo] << endl;
                     }
                     getch();
                 } else if (opcaoSN == 'n') {
